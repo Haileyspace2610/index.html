@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f7f4ef">
+<title>日語溫習 | JLPT 学習手帳</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f4ef; --surface: #ffffff; --surface-2: #faf7f2; --surface-3: #f3eee5;
+  --primary: #b34a4a; --primary-soft: #faeaea; --primary-dark: #9a3b3b;
+  --accent: #5e8570; --accent-soft: #e5efe9;
+  --gold: #b8935e; --gold-soft: #f8efdd;
+  --text: #2a2622; --text-2: #6a6258; --text-3: #a69c8e;
+  --border: #ebe3d6; --border-2: #ddd2c0;
+  --shadow-sm: 0 1px 2px rgba(60,50,35,0.04);
+  --shadow: 0 2px 10px rgba(60,50,35,0.06);
+  --shadow-md: 0 6px 22px rgba(60,50,35,0.08);
+  --shadow-lg: 0 12px 40px rgba(60,50,35,0.12);
+  --r-lg: 20px; --r-md: 14px; --r-sm: 10px;
+  --tab-h: clamp(78px, 13vw, 108px);
+  --tab-icon-w: clamp(36px, 6.2vw, 52px);
+  --tab-icon-h: clamp(46px, 8vw, 68px);
+  --tab-label: clamp(10px, 2.3vw, 12.5px);
+  --brand-avatar: clamp(64px, 18vw, 128px);
+  --brand-title: clamp(18px, 5.6vw, 42px);
+  --brand-sub: clamp(10px, 2.4vw, 17px);
+  --brand-gap: clamp(10px, 2.4vw, 22px);
+  --brand-pad-v: clamp(8px, 1.8vw, 16px);
+  --brand-pad-h: clamp(10px, 2.2vw, 28px);
+  --brand-radius: clamp(16px, 4vw, 32px);
+  --banner-h: clamp(180px, 32vh, 300px);
+  --sans: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Segoe UI", sans-serif;
+  --font-manga: "Mochiy Pop One", "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans TC", sans-serif;
+  --font-heading: "Zen Maru Gothic", "Mochiy Pop One", "Hiragino Maru Gothic ProN", sans-serif;
+  --mono: "SF Mono", "Menlo", "Consolas", monospace;
+  --banner-fade: rgba(247,244,239,0.92);
+}
+[data-theme="dark"] {
+  --bg: #1a1714; --surface: #272320; --surface-2: #2e2925; --surface-3: #38322d;
+  --primary: #e07070; --primary-soft: #3a2424; --primary-dark: #c55a5a;
+  --accent: #8fb8a0; --accent-soft: #24302a; --gold: #d4a86e; --gold-soft: #322a1e;
+  --text: #ede5d8; --text-2: #b8ac9c; --text-3: #7a7064;
+  --border: #38322d; --border-2: #4a423a;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3); --shadow: 0 2px 10px rgba(0,0,0,0.35);
+  --shadow-md: 0 6px 22px rgba(0,0,0,0.4); --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
+  --banner-fade: rgba(26,23,20,0.92);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; font-size: 15px; -webkit-font-smoothing: antialiased; min-height: 100vh; padding-bottom: env(safe-area-inset-bottom); transition: background-color 0.3s, color 0.3s; }
+button, input, select, textarea { font-family: inherit; font-size: inherit; color: inherit; }
+button { cursor: pointer; border: none; background: none; }
+input, select, textarea { outline: none; }
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--primary-soft); color: var(--primary-dark); }
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 3px; }
+.top-sticky { position: sticky; top: 0; z-index: 50; }
+.banner { position: relative; height: var(--banner-h); overflow: hidden; background: var(--surface-3); isolation: isolate; }
+.banner-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; z-index: 0; transition: filter 0.3s; }
+[data-theme="dark"] .banner-img { filter: brightness(0.52) saturate(0.75); }
+.banner-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 55%, var(--banner-fade) 100%), linear-gradient(90deg, rgba(30,20,18,0.42) 0%, rgba(30,20,18,0.12) 40%, rgba(30,20,18,0) 65%); z-index: 1; pointer-events: none; }
+.banner::after { content: ''; position: absolute; top: 12%; right: 6%; width: clamp(50px, 12vw, 100px); height: clamp(50px, 12vw, 100px); background: repeating-conic-gradient(from 20deg, rgba(255,255,255,0.35) 0deg 6deg, transparent 6deg 30deg); border-radius: 50%; -webkit-mask: radial-gradient(circle, transparent 40%, #000 42%); mask: radial-gradient(circle, transparent 40%, #000 42%); z-index: 1; opacity: 0.55; pointer-events: none; animation: spinSlow 60s linear infinite; }
+@keyframes spinSlow { to { transform: rotate(360deg); } }
+.banner-inner { position: relative; z-index: 2; height: 100%; padding: 0 clamp(10px, 3vw, 16px) clamp(12px, 2.5vw, 18px); display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
+.brand { display: flex; align-items: center; gap: var(--brand-gap); min-width: 0; padding: var(--brand-pad-v) var(--brand-pad-h) var(--brand-pad-v) var(--brand-pad-v); background: rgba(28,22,20,0.32); backdrop-filter: blur(10px) saturate(140%); -webkit-backdrop-filter: blur(10px) saturate(140%); border-radius: var(--brand-radius); border: 1px solid rgba(255,255,255,0.16); box-shadow: 0 6px 30px rgba(0,0,0,0.22); }
+[data-theme="dark"] .brand { background: rgba(20,16,14,0.55); border-color: rgba(255,255,255,0.1); }
+.brand-avatar { width: var(--brand-avatar); height: var(--brand-avatar); aspect-ratio: 1 / 1; border-radius: clamp(14px, 3.6vw, 24px); overflow: hidden; flex-shrink: 0; background: var(--surface-3); border: 2px solid rgba(255,255,255,0.72); box-shadow: 0 6px 20px rgba(0,0,0,0.28); transition: transform 0.25s; }
+.brand-avatar:active { transform: scale(0.94); }
+.brand-avatar-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.brand-text { min-width: 0; }
+.brand-title { font-family: var(--font-manga); font-size: var(--brand-title); font-weight: 400; letter-spacing: 0.04em; color: #ffffff; white-space: nowrap; text-shadow: 0 2px 6px rgba(0,0,0,0.45), 0 0 20px rgba(0,0,0,0.2); line-height: 1.15; }
+.brand-sub { font-family: var(--font-heading); font-size: var(--brand-sub); color: rgba(255,255,255,0.9); letter-spacing: 0.1em; font-weight: 700; margin-top: clamp(2px, 0.5vw, 4px); text-shadow: 0 1px 3px rgba(0,0,0,0.35); }
+.banner-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.theme-btn { width: clamp(36px, 8vw, 44px); height: clamp(36px, 8vw, 44px); border-radius: clamp(10px, 2.6vw, 14px); background: rgba(255,255,255,0.22); border: 1px solid rgba(255,255,255,0.32); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: grid; place-items: center; font-size: clamp(15px, 3.6vw, 19px); box-shadow: 0 2px 10px rgba(0,0,0,0.15); transition: all 0.25s; color: #fff; }
+[data-theme="dark"] .theme-btn { background: rgba(50,42,38,0.6); border-color: rgba(255,255,255,0.14); }
+.theme-btn:active { transform: scale(0.9); }
+.header-timer { display: flex; align-items: center; gap: 6px; padding: clamp(8px, 1.8vw, 11px) clamp(10px, 2.4vw, 14px); background: rgba(255,255,255,0.86); border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: clamp(10px, 2.6vw, 14px); font-family: var(--mono); font-size: clamp(11px, 2.6vw, 14px); font-weight: 700; color: var(--primary); box-shadow: 0 2px 10px rgba(0,0,0,0.15); transition: all 0.25s; }
+[data-theme="dark"] .header-timer { background: rgba(50,42,38,0.85); border-color: rgba(255,255,255,0.12); color: #f08a8a; }
+.header-timer .pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
+.tab-bar { height: var(--tab-h); padding: clamp(4px, 1vw, 6px) clamp(6px, 2vw, 12px); display: flex; align-items: center; gap: clamp(3px, 1vw, 6px); overflow-x: auto; overflow-y: hidden; background: rgba(251, 249, 245, 0.94); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); scrollbar-width: none; -ms-overflow-style: none; transition: background 0.3s; position: relative; }
+.tab-bar::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: repeating-linear-gradient(90deg, var(--primary) 0 6px, transparent 6px 12px); opacity: 0.35; pointer-events: none; }
+[data-theme="dark"] .tab-bar { background: rgba(26, 23, 20, 0.94); }
+.tab-bar::-webkit-scrollbar { display: none; }
+.tab { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(2px, 0.5vw, 4px); padding: clamp(2px, 0.5vw, 4px) clamp(5px, 1.5vw, 10px); border-radius: clamp(8px, 2vw, 12px); min-width: clamp(56px, 14vw, 74px); background: transparent; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); position: relative; }
+.tab:active { transform: scale(0.95); }
+.tab-icon { position: relative; width: var(--tab-icon-w); height: var(--tab-icon-h); border-radius: clamp(6px, 1.5vw, 8px); background: linear-gradient(135deg, var(--surface-2), var(--surface-3)); display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; border: 1px solid var(--border); transition: all 0.2s; }
+.tab-emoji { font-size: clamp(16px, 4.4vw, 24px); line-height: 1; z-index: 1; }
+.tab-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; }
+.tab-img:not([src]), .tab-img[src=""] { display: none !important; }
+.tab-label { font-family: var(--font-manga); font-size: var(--tab-label); font-weight: 400; color: var(--text-2); letter-spacing: 0.02em; white-space: nowrap; }
+.tab.active { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); box-shadow: 0 3px 14px rgba(179, 74, 74, 0.32); }
+.tab.active::before { content: '✦'; position: absolute; top: -2px; right: 2px; color: #ffe58a; font-size: 11px; text-shadow: 0 0 6px rgba(255,220,120,0.9); animation: twinkle 1.8s infinite alternate; z-index: 3; }
+@keyframes twinkle { from { opacity: 0.6; transform: scale(0.9); } to { opacity: 1; transform: scale(1.15); } }
+.tab.active .tab-icon { border-color: rgba(255,255,255,0.5); box-shadow: 0 0 12px rgba(255,255,255,0.25); }
+.tab.active .tab-label { color: #fff; }
+.tab:not(.active):hover { background: var(--surface); }
+.tab:not(.active):hover .tab-label { color: var(--text); }
+main { max-width: 960px; margin: 0 auto; padding: 16px 16px 100px; position: relative; }
+.page { display: none; }
+.page.active { display: block; animation: fadeUp 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.page-title { display: flex; align-items: center; gap: 10px; font-family: var(--font-manga); font-size: 26px; font-weight: 400; letter-spacing: 0.03em; margin-bottom: 6px; color: var(--text); line-height: 1.2; }
+.page-title::before { content: '✦'; color: var(--primary); font-size: 16px; text-shadow: 0 0 8px rgba(179,74,74,0.35); animation: twinkle 2.2s infinite alternate; }
+.page-title .count { font-family: var(--sans); font-size: 12px; background: var(--surface-3); color: var(--text-2); padding: 2px 9px; border-radius: 999px; font-weight: 700; }
+.page-subtitle { font-size: 12.5px; color: var(--text-3); margin-bottom: 14px; padding-left: 22px; }
+.home-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+.stat-card { display: flex; align-items: center; gap: 12px; padding: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); box-shadow: var(--shadow-sm); text-align: left; transition: all 0.2s; min-height: 66px; position: relative; overflow: hidden; }
+.stat-card::before { content: ''; position: absolute; top: -20%; right: -20%; width: 60%; height: 60%; background-image: radial-gradient(circle, rgba(179,74,74,0.18) 1px, transparent 1.5px); background-size: 8px 8px; opacity: 0.6; border-radius: 50%; pointer-events: none; }
+.stat-card:active { transform: scale(0.98); }
+.stat-icon { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; font-size: 20px; flex-shrink: 0; }
+.stat-card.timer .stat-icon { background: var(--primary-soft); }
+.stat-card.count .stat-icon { background: var(--accent-soft); }
+.stat-content { min-width: 0; flex: 1; position: relative; z-index: 1; }
+.stat-label { font-size: 11px; color: var(--text-3); font-weight: 600; letter-spacing: 0.02em; display: flex; align-items: center; gap: 4px; }
+.stat-value { font-family: var(--mono); font-size: 19px; font-weight: 800; color: var(--text); letter-spacing: -0.01em; margin-top: 1px; }
+.stat-card.timer .stat-value { color: var(--primary); }
+.stat-card.count .stat-value { color: var(--accent); }
+.chevron { display: inline-block; transition: transform 0.25s; font-size: 9px; color: var(--text-3); }
+.stats-detail { display: none; margin: -12px 0 20px; padding: 12px 14px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r-md); font-size: 13px; flex-wrap: wrap; gap: 6px; }
+.stats-detail.show { display: flex; animation: fadeUp 0.25s; }
+.stats-detail .stat-item { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; font-size: 12px; color: var(--text-2); }
+.stats-detail .stat-item b { color: var(--primary); font-weight: 800; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; margin: 24px 0 12px; }
+.section-title { font-family: var(--font-manga); font-size: 18px; font-weight: 400; color: var(--text); display: flex; align-items: center; gap: 7px; letter-spacing: 0.03em; }
+.section-title::before { content: '✎'; color: var(--accent); font-size: 15px; }
+.section-hint { font-size: 11.5px; color: var(--text-3); }
+.q-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+@media (min-width: 720px) { .q-grid { grid-template-columns: repeat(3, 1fr); } }
+.q-tile { padding: 14px; border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm); text-align: left; display: flex; flex-direction: column; gap: 8px; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; min-height: 108px; }
+.q-tile::after { content: '›'; position: absolute; right: 12px; bottom: 8px; font-size: 18px; color: var(--text-3); opacity: 0.6; }
+.q-tile:active { transform: scale(0.97); }
+.q-tile-top { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; color: var(--text-3); letter-spacing: 0.03em; position: relative; z-index: 1; }
+.q-tile-icon { width: 22px; height: 22px; border-radius: 7px; display: grid; place-items: center; font-size: 12px; }
+.q-tile-main { font-family: var(--font-manga); font-size: 15px; font-weight: 400; color: var(--text); letter-spacing: -0.005em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; position: relative; z-index: 1; }
+.q-tile-sub { font-size: 12px; color: var(--text-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; position: relative; z-index: 1; }
+.q-tile[data-cat="vocab"] { background: linear-gradient(135deg, #fef5f5, #fcecec); border-color: #f4d6d6; }
+.q-tile[data-cat="vocab"] .q-tile-icon { background: #f8d7d7; }
+.q-tile[data-cat="vocab"] .q-tile-top { color: #a54b4b; }
+.q-tile[data-cat="grammar"] { background: linear-gradient(135deg, #f2f6fb, #e6eef7); border-color: #cfdeef; }
+.q-tile[data-cat="grammar"] .q-tile-icon { background: #d3e1f0; }
+.q-tile[data-cat="grammar"] .q-tile-top { color: #3f6486; }
+.q-tile[data-cat="exam"] { background: linear-gradient(135deg, #f2f8f3, #e6f0e8); border-color: #cfe2d4; }
+.q-tile[data-cat="exam"] .q-tile-icon { background: #d3e7d9; }
+.q-tile[data-cat="exam"] .q-tile-top { color: #4c7c5a; }
+.q-tile[data-cat="idiom"] { background: linear-gradient(135deg, #f7f3fb, #efe8f7); border-color: #dfd2ed; }
+.q-tile[data-cat="idiom"] .q-tile-icon { background: #e0d3ed; }
+.q-tile[data-cat="idiom"] .q-tile-top { color: #6b4c87; }
+.q-tile[data-cat="collocation"] { background: linear-gradient(135deg, #fdf8ec, #faf2de); border-color: #efe2c1; }
+.q-tile[data-cat="collocation"] .q-tile-icon { background: #f0e1bb; }
+.q-tile[data-cat="collocation"] .q-tile-top { color: #926f2c; }
+.q-tile[data-cat="onomatopoeia"] { background: linear-gradient(135deg, #eff8f8, #def0f0); border-color: #c8e1e1; }
+.q-tile[data-cat="onomatopoeia"] .q-tile-icon { background: #cbe5e5; }
+.q-tile[data-cat="onomatopoeia"] .q-tile-top { color: #3d7a7a; }
+.q-tile[data-cat="conjunction"] { background: linear-gradient(135deg, #fdf0ec, #fce6e0); border-color: #f0d2c8; }
+.q-tile[data-cat="conjunction"] .q-tile-icon { background: #f2d5c9; }
+.q-tile[data-cat="conjunction"] .q-tile-top { color: #a65a45; }
+.q-tile[data-cat="particle"] { background: linear-gradient(135deg, #f2f2fb, #e8e8f7); border-color: #d3d3e8; }
+.q-tile[data-cat="particle"] .q-tile-icon { background: #d7d7e8; }
+.q-tile[data-cat="particle"] .q-tile-top { color: #515088; }
+.q-tile[data-cat="daily"] { background: linear-gradient(135deg, #2a1e3f, #1a1230); border-color: rgba(160, 130, 220, 0.4); box-shadow: 0 4px 20px rgba(100, 70, 180, 0.25); }
+.q-tile[data-cat="daily"] .q-tile-icon { background: rgba(180, 140, 255, 0.25); }
+.q-tile[data-cat="daily"] .q-tile-top { color: #c8a8ff; }
+.q-tile[data-cat="daily"] .q-tile-main { color: #f4e8ff; text-shadow: 0 0 12px rgba(200, 160, 255, 0.4); }
+.q-tile[data-cat="daily"] .q-tile-sub { color: #b8a8d8; }
+.q-tile[data-cat="daily"]::after { color: rgba(200, 180, 255, 0.6); }
+[data-theme="dark"] .q-tile { border-color: var(--border); }
+[data-theme="dark"] .q-tile[data-cat="vocab"] { background: linear-gradient(135deg, #352525, #2e2020); border-color: #4a3232; }
+[data-theme="dark"] .q-tile[data-cat="grammar"] { background: linear-gradient(135deg, #222a35, #1e2530); border-color: #2e3a4a; }
+[data-theme="dark"] .q-tile[data-cat="exam"] { background: linear-gradient(135deg, #22302a, #1e2a24); border-color: #2e4438; }
+[data-theme="dark"] .q-tile[data-cat="idiom"] { background: linear-gradient(135deg, #2a2235, #241e30); border-color: #3a2e4a; }
+[data-theme="dark"] .q-tile[data-cat="collocation"] { background: linear-gradient(135deg, #352e20, #2e281c); border-color: #4a4028; }
+[data-theme="dark"] .q-tile[data-cat="onomatopoeia"] { background: linear-gradient(135deg, #203030, #1e2a2a); border-color: #2e4444; }
+[data-theme="dark"] .q-tile[data-cat="conjunction"] { background: linear-gradient(135deg, #352520, #2e201c); border-color: #4a3228; }
+[data-theme="dark"] .q-tile[data-cat="particle"] { background: linear-gradient(135deg, #252535, #20202e); border-color: #32324a; }
+.quiz-wrap { margin-top: 20px; padding: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); box-shadow: var(--shadow); position: relative; overflow: hidden; }
+.quiz-wrap::before { content: ''; position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-image: radial-gradient(circle, rgba(179,74,74,0.14) 1.2px, transparent 1.8px); background-size: 8px 8px; clip-path: polygon(100% 0, 0 0, 100% 100%); opacity: 0.7; pointer-events: none; }
+.quiz-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; position: relative; z-index: 1; }
+.quiz-head h3 { font-family: var(--font-manga); font-size: 18px; font-weight: 400; display: flex; align-items: center; gap: 7px; letter-spacing: 0.03em; }
+.quiz-hint { font-size: 11.5px; color: var(--text-3); margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px dashed var(--border); }
+.quiz-item { padding: 14px 0; border-bottom: 1px dashed var(--border); }
+.quiz-item:last-child { border-bottom: none; padding-bottom: 0; }
+.quiz-q { font-size: 14px; font-weight: 700; margin-bottom: 10px; line-height: 1.5; color: var(--text); }
+.quiz-q .q-num { display: inline-block; width: 22px; height: 22px; line-height: 22px; text-align: center; background: var(--primary-soft); color: var(--primary); border-radius: 6px; font-size: 11px; font-weight: 800; margin-right: 6px; vertical-align: 1px; }
+.quiz-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.quiz-opt { padding: 9px 16px; border-radius: 10px; border: 1.5px solid var(--border); background: var(--surface-2); font-size: 13px; font-weight: 600; color: var(--text); transition: all 0.2s; min-height: 40px; }
+.quiz-opt:active { transform: scale(0.96); }
+.quiz-opt:hover { border-color: var(--accent); }
+.quiz-opt.correct { background: #e5f3ea; border-color: #4caf6d; color: #1e5d33; }
+.quiz-opt.wrong { background: #fae6e6; border-color: #d95252; color: #8f2626; }
+[data-theme="dark"] .quiz-opt.correct { background: #1e3a28; border-color: #4caf6d; color: #8fd9a8; }
+[data-theme="dark"] .quiz-opt.wrong { background: #3a2020; border-color: #d95252; color: #e89a9a; }
+.quiz-feedback { margin-top: 8px; padding: 8px 12px; background: var(--gold-soft); border-left: 3px solid var(--gold); border-radius: 6px; font-size: 12px; color: var(--gold); animation: fadeUp 0.25s; }
+[data-theme="dark"] .quiz-feedback { color: #e8c48a; }
+.toolbar { margin-bottom: 14px; }
+.search-wrap { position: relative; margin-bottom: 10px; }
+.search-wrap .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--text-3); pointer-events: none; }
+.search-wrap input { width: 100%; padding: 11px 14px 11px 38px; background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--r-md); font-size: 14px; color: var(--text); transition: border-color 0.2s; }
+.search-wrap input::placeholder { color: var(--text-3); }
+.search-wrap input:focus { border-color: var(--primary); }
+.filter-row { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+.filter-row::-webkit-scrollbar { display: none; }
+.filter-row select { flex: 0 0 auto; padding: 8px 30px 8px 12px; background: var(--surface) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%23a69c8e' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>") no-repeat right 12px center; border: 1.5px solid var(--border); border-radius: 10px; font-size: 13px; font-weight: 600; color: var(--text-2); -webkit-appearance: none; appearance: none; cursor: pointer; }
+[data-theme="dark"] .filter-row select { background: var(--surface) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%237a7064' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>") no-repeat right 12px center; }
+.db-manager { margin-bottom: 10px; }
+.db-manager-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 7px 13px; background: var(--surface); border: 1.5px solid var(--border); border-radius: 9px; font-size: 12px; font-weight: 600; color: var(--text-2); transition: all 0.2s; margin-bottom: 8px; }
+.db-manager-toggle:active { transform: scale(0.95); }
+.db-manager-toggle .chev { font-size: 9px; transition: transform 0.25s; color: var(--text-3); }
+.db-bar { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; animation: fadeUp 0.2s; }
+.db-bar::-webkit-scrollbar { display: none; }
+.db-bar.collapsed { display: none; }
+.db-btn { flex: 0 0 auto; padding: 7px 12px; background: var(--surface); border: 1.5px solid var(--border); border-radius: 9px; font-size: 12px; font-weight: 600; color: var(--text-2); display: flex; align-items: center; gap: 4px; transition: all 0.2s; white-space: nowrap; }
+.db-btn:active { transform: scale(0.95); }
+.db-btn:hover { border-color: var(--accent); color: var(--accent); }
+.db-btn.primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+.db-btn.primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); color: #fff; }
+.card-list { display: flex; flex-direction: column; gap: 12px; }
+.card { position: relative; padding: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); box-shadow: var(--shadow-sm); transition: all 0.2s; overflow: hidden; }
+.card::after { content: ''; position: absolute; top: 8px; right: 8px; width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--border); background: var(--surface-2); pointer-events: none; z-index: 0; opacity: 0.7; }
+.card:active { transform: scale(0.995); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 6px; position: relative; z-index: 1; }
+.card-main { flex: 1; min-width: 0; }
+.card-title { font-family: var(--font-manga); font-size: 20px; font-weight: 400; letter-spacing: 0.01em; color: var(--text); line-height: 1.35; }
+.card-title .particle-hl { color: var(--primary); background: var(--primary-soft); padding: 0 3px; border-radius: 4px; font-weight: 900; }
+.card-kana { font-size: 13px; color: var(--accent); font-weight: 600; margin-top: 1px; letter-spacing: 0.02em; }
+.card-meaning { font-size: 14px; color: var(--text-2); margin-top: 6px; font-weight: 500; }
+.card-badges { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 3px; padding: 2px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.02em; }
+.chip.level { background: var(--accent-soft); color: var(--accent); }
+.chip.cat { background: var(--surface-3); color: var(--text-2); }
+.chip.related { background: var(--primary-soft); color: var(--primary); cursor: pointer; transition: all 0.2s; }
+.chip.related:active { transform: scale(0.95); }
+.card-actions { display: flex; gap: 4px; flex-shrink: 0; position: relative; z-index: 2; }
+.icon-btn { width: 36px; height: 36px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--border); display: grid; place-items: center; font-size: 15px; transition: all 0.2s; color: var(--text-2); flex-shrink: 0; }
+.icon-btn:active { transform: scale(0.9); }
+.icon-btn:hover { background: var(--primary-soft); border-color: #f0caca; }
+.icon-btn.faved { background: var(--primary-soft); border-color: #f0caca; }
+.example-box { margin-top: 10px; padding: 10px 12px; background: var(--surface-2); border-left: 3px solid var(--accent); border-radius: 8px; font-size: 12.5px; line-height: 1.6; color: var(--text-2); }
+.example-box .ex-label { font-size: 10.5px; font-weight: 700; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 2px; }
+.confused-box { margin-top: 8px; padding: 9px 12px; background: var(--gold-soft); border-left: 3px solid var(--gold); border-radius: 8px; font-size: 12.5px; color: var(--gold); line-height: 1.55; }
+[data-theme="dark"] .confused-box { color: #e8c48a; }
+.confused-box .cf-label { font-size: 10.5px; font-weight: 700; color: var(--gold); letter-spacing: 0.05em; margin-bottom: 2px; }
+.mazii-link { display: inline-flex; align-items: center; gap: 4px; margin-top: 10px; padding: 6px 12px; background: var(--accent-soft); color: var(--accent); border-radius: 8px; font-size: 12px; font-weight: 700; transition: all 0.2s; }
+.mazii-link:active { transform: scale(0.95); }
+.word-extra { margin-top: 10px; padding: 10px 12px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; display: flex; flex-direction: column; gap: 7px; }
+.extra-row { display: flex; gap: 8px; font-size: 12.5px; line-height: 1.5; align-items: flex-start; }
+.extra-label { flex-shrink: 0; padding: 1px 8px; background: var(--accent-soft); color: var(--accent); border-radius: 6px; font-size: 10.5px; font-weight: 800; letter-spacing: 0.03em; white-space: nowrap; margin-top: 1px; }
+.extra-row.homophone-mean .extra-label { background: #e8e0f2; color: #6b4c87; }
+[data-theme="dark"] .extra-row.homophone-mean .extra-label { background: #322a40; color: #b89ed4; }
+.extra-row.error .extra-label { background: var(--gold-soft); color: var(--gold); }
+.extra-row.error .extra-text { color: var(--gold); }
+[data-theme="dark"] .extra-row.error .extra-text { color: #e8c48a; }
+.extra-text { color: var(--text-2); }
+.exam-point { display: flex; gap: 8px; padding: 10px 0; font-size: 13.5px; line-height: 1.6; color: var(--text-2); border-top: 1px dashed var(--border); }
+.exam-point:first-of-type { border-top: none; padding-top: 4px; }
+.exam-point .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); margin-top: 9px; flex-shrink: 0; }
+.empty { padding: 60px 20px; text-align: center; color: var(--text-3); }
+.empty-icon { font-size: 40px; margin-bottom: 12px; opacity: 0.5; }
+.empty-text { font-size: 14px; font-weight: 600; }
+.empty-hint { font-size: 12px; margin-top: 4px; }
+.back-top { position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom)); width: 44px; height: 44px; border-radius: 14px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; font-size: 18px; font-weight: 700; box-shadow: 0 6px 20px rgba(179, 74, 74, 0.35); display: none; align-items: center; justify-content: center; z-index: 40; transition: all 0.25s; }
+.back-top.show { display: flex; animation: popIn 0.25s; }
+.back-top:active { transform: scale(0.9); }
+@keyframes popIn { from { transform: scale(0.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.modal-overlay { position: fixed; inset: 0; background: rgba(30, 25, 20, 0.45); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); display: none; align-items: flex-end; justify-content: center; z-index: 200; animation: fadeIn 0.2s; }
+.modal-overlay.show { display: flex; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.modal { width: 100%; max-width: 560px; max-height: 88vh; overflow-y: auto; background: var(--surface); border-radius: 24px 24px 0 0; padding: 20px 20px calc(20px + env(safe-area-inset-bottom)); box-shadow: var(--shadow-lg); animation: slideUp 0.32s cubic-bezier(0.32, 0.72, 0, 1); }
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.modal::before { content: ''; display: block; width: 40px; height: 4px; background: var(--border-2); border-radius: 2px; margin: -4px auto 14px; }
+.modal h3 { font-family: var(--font-manga); font-size: 19px; font-weight: 400; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; letter-spacing: 0.02em; }
+.modal-desc { font-size: 12.5px; color: var(--text-3); margin-bottom: 16px; line-height: 1.55; }
+.modal label { display: block; font-size: 12.5px; font-weight: 700; color: var(--text-2); margin: 14px 0 6px; letter-spacing: 0.02em; }
+.modal input, .modal textarea, .modal select { width: 100%; padding: 11px 13px; background: var(--surface-2); border: 1.5px solid var(--border); border-radius: 11px; font-size: 14px; color: var(--text); transition: border-color 0.2s; }
+.modal input:focus, .modal textarea:focus, .modal select:focus { border-color: var(--primary); background: var(--surface); }
+.modal textarea { resize: vertical; min-height: 70px; font-family: var(--mono); line-height: 1.5; font-size: 13px; }
+.modal-actions { display: flex; gap: 10px; margin-top: 20px; position: sticky; bottom: 0; padding-top: 12px; background: var(--surface); }
+.modal-actions .btn { flex: 1; padding: 13px; border-radius: 12px; font-size: 14px; font-weight: 700; transition: all 0.2s; }
+.btn-outline { background: var(--surface-2); border: 1.5px solid var(--border); color: var(--text-2); }
+.btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; box-shadow: 0 4px 14px rgba(179, 74, 74, 0.25); }
+.btn-outline:active, .btn-primary:active { transform: scale(0.97); }
+.toast { position: fixed; left: 50%; bottom: calc(80px + env(safe-area-inset-bottom)); transform: translateX(-50%) translateY(20px); background: rgba(30,25,20,0.92); color: #fff; padding: 12px 20px; border-radius: 12px; font-size: 13px; font-weight: 600; line-height: 1.5; max-width: 90vw; box-shadow: 0 8px 30px rgba(0,0,0,0.3); opacity: 0; pointer-events: none; transition: all 0.3s; z-index: 300; white-space: pre-line; text-align: center; }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+#page-daily { position: relative; margin: -16px; padding: 20px 16px 120px; overflow: hidden; background: radial-gradient(ellipse at 50% -10%, #33234f 0%, #1a1230 40%, #0a0518 90%); color: #e8e0f0; isolation: isolate; min-height: 100vh; }
+#page-daily::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: radial-gradient(1.5px 1.5px at 15% 25%, #fff, transparent), radial-gradient(1px 1px at 55% 18%, #e8d4ff, transparent), radial-gradient(2px 2px at 85% 55%, #fff, transparent), radial-gradient(1.5px 1.5px at 35% 72%, #d4c8ff, transparent), radial-gradient(1px 1px at 92% 35%, #fff, transparent), radial-gradient(1px 1px at 8% 85%, #e8d4ff, transparent), radial-gradient(1.5px 1.5px at 65% 88%, #fff, transparent); background-size: 240px 240px; animation: starsTwinkle 6s infinite alternate; opacity: 0.85; }
+#page-daily::after { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 60% 40% at 28% 45%, rgba(150, 100, 220, 0.22), transparent 70%), radial-gradient(ellipse 55% 55% at 72% 75%, rgba(100, 150, 220, 0.14), transparent 70%), radial-gradient(ellipse 50% 30% at 50% 90%, rgba(200, 120, 220, 0.15), transparent 70%); animation: fogDrift 14s ease-in-out infinite alternate; }
+#page-daily > * { position: relative; z-index: 1; }
+@keyframes starsTwinkle { 0% { opacity: 0.55; } 100% { opacity: 1; } }
+@keyframes fogDrift { 0% { transform: translateX(-3%) translateY(-2%) scale(1); } 100% { transform: translateX(3%) translateY(2%) scale(1.08); } }
+#page-daily .page-title { font-family: var(--font-manga); color: #f4e8ff; font-size: 30px; letter-spacing: 0.12em; animation: mysticGlow 3.5s infinite alternate; }
+#page-daily .page-title::before { color: #e0c0ff; text-shadow: 0 0 12px #d0a8ff; }
+#page-daily .page-title .count { background: rgba(200, 160, 255, 0.2); color: #d8c0ff; border: 1px solid rgba(200, 160, 255, 0.3); }
+#page-daily .page-subtitle { color: rgba(200, 180, 230, 0.65); font-style: italic; letter-spacing: 0.05em; }
+@keyframes mysticGlow { 0% { text-shadow: 0 0 14px rgba(200, 150, 255, 0.55), 0 0 30px rgba(150, 100, 220, 0.3); } 100% { text-shadow: 0 0 22px rgba(220, 170, 255, 0.95), 0 0 48px rgba(180, 120, 255, 0.6), 0 0 80px rgba(140, 90, 220, 0.4); } }
+#page-daily .search-wrap input { background: rgba(30, 20, 55, 0.72); border-color: rgba(150, 120, 220, 0.35); color: #ebe4f5; }
+#page-daily .search-wrap input::placeholder { color: rgba(200, 180, 220, 0.5); }
+#page-daily .search-wrap .search-icon { color: rgba(200, 180, 220, 0.6); }
+#page-daily .filter-row select { background-color: rgba(30, 20, 55, 0.72); border-color: rgba(150, 120, 220, 0.35); color: #d8c8f0; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%23b8a8e8' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>"); background-repeat: no-repeat; background-position: right 12px center; }
+#page-daily .db-manager-toggle { background: rgba(30, 20, 55, 0.6); border-color: rgba(150, 120, 220, 0.35); color: #d8c8f0; }
+#page-daily .db-btn { background: rgba(30, 20, 55, 0.65); border-color: rgba(150, 120, 220, 0.35); color: #d8c8f0; }
+#page-daily .db-btn.primary { background: linear-gradient(135deg, #7a4dd0, #5a3aa8); border-color: #7a4dd0; color: #fff; box-shadow: 0 0 20px rgba(140, 90, 220, 0.4); }
+#page-daily .card { background: linear-gradient(135deg, rgba(52, 38, 82, 0.85), rgba(30, 22, 52, 0.95)); border: 1px solid rgba(160, 130, 220, 0.38); box-shadow: 0 4px 26px rgba(100, 70, 180, 0.28), inset 0 1px 0 rgba(210, 180, 255, 0.16); color: #ebe4f5; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); animation: mysticAppear 0.65s cubic-bezier(0.4, 0, 0.2, 1) backwards; }
+#page-daily .card::after { border-color: rgba(200, 170, 255, 0.35); background: rgba(80, 60, 130, 0.5); }
+#page-daily .card:hover { border-color: rgba(200, 170, 255, 0.6); box-shadow: 0 6px 30px rgba(150, 100, 240, 0.4), inset 0 1px 0 rgba(230, 200, 255, 0.25); }
+#page-daily .card:nth-child(1) { animation-delay: 0.08s; } #page-daily .card:nth-child(2) { animation-delay: 0.16s; } #page-daily .card:nth-child(3) { animation-delay: 0.24s; } #page-daily .card:nth-child(4) { animation-delay: 0.32s; } #page-daily .card:nth-child(5) { animation-delay: 0.40s; } #page-daily .card:nth-child(6) { animation-delay: 0.48s; } #page-daily .card:nth-child(7) { animation-delay: 0.56s; } #page-daily .card:nth-child(8) { animation-delay: 0.64s; }
+@keyframes mysticAppear { from { opacity: 0; transform: translateY(24px) scale(0.98); filter: blur(8px); } to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
+#page-daily .card-title { color: #f4e8ff; text-shadow: 0 0 16px rgba(200, 160, 255, 0.45); }
+#page-daily .card-kana { color: #b8a8e8; }
+#page-daily .card-meaning { color: #d8d0e8; }
+#page-daily .chip.level { background: rgba(150, 100, 220, 0.25); color: #d0b8ff; border: 1px solid rgba(180, 140, 255, 0.35); }
+#page-daily .icon-btn { background: rgba(180, 150, 255, 0.12); border-color: rgba(200, 170, 255, 0.25); color: #d8c8f8; }
+#page-daily .icon-btn:hover { background: rgba(180, 150, 255, 0.25); border-color: rgba(200, 170, 255, 0.5); }
+.mystic-note { margin-top: 12px; padding: 10px 14px; background: linear-gradient(90deg, rgba(110, 75, 190, 0.28), rgba(60, 40, 120, 0.15)); border-left: 3px solid rgba(200, 160, 255, 0.65); border-radius: 8px; font-size: 12.5px; color: #d8c8f0; font-style: italic; line-height: 1.55; position: relative; box-shadow: inset 0 0 20px rgba(140, 90, 220, 0.1); }
+.mystic-note::before { content: '✦'; margin-right: 6px; color: #c8a8ff; text-shadow: 0 0 8px #c8a8ff; font-style: normal; }
+@media (max-width: 520px) { .brand-sub { display: none; } .brand { padding-right: calc(var(--brand-pad-v) + 4px); } }
+@media (min-width: 640px) { .modal-overlay { align-items: center; padding: 20px; } .modal { border-radius: 24px; max-height: 85vh; } .modal::before { display: none; } }
+</style>
+</head>
+<body data-theme="light">
+
+<div class="top-sticky">
+  <header class="banner">
+    <img class="banner-img" src="Banner.jpeg" alt="日式櫻花風景" loading="eager" referrerpolicy="no-referrer">
+    <div class="banner-overlay"></div>
+    <div class="banner-inner">
+      <div class="brand">
+        <div class="brand-avatar">
+          <img class="brand-avatar-img" src="blackstar.png" alt="品牌圖示" loading="eager" referrerpolicy="no-referrer">
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">日語溫習</div>
+          <div class="brand-sub">JLPT 学習手帳</div>
+        </div>
+      </div>
+      <div class="banner-actions">
+        <button class="theme-btn" id="themeBtn" aria-label="切換主題">🌙</button>
+        <div class="header-timer">
+          <span class="pulse"></span>
+          <span id="headerTimer">00:00</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tab-bar" id="nav">
+    <button class="tab active" data-page="home"><div class="tab-icon"><span class="tab-emoji">🏠</span><img class="tab-img" src="" alt="" onerror="this.style.display='none'"></div><span class="tab-label">主頁</span></button>
+    <button class="tab" data-page="vocab"><div class="tab-icon"><span class="tab-emoji">📖</span><img class="tab-img" src="" alt="" onerror="this.style.display='none'"></div><span class="tab-label">單詞</span></button>
+    <button class="tab" data-page="grammar"><div class="tab-icon"><span class="tab-emoji">📐</span><img class="tab-img" src="" alt="" onerror="this.style.display='none'"></div><span class="tab-label">文法</span></button>
+    <button class="tab" data-page="particle"><div class="tab-icon"><span class="tab-emoji">🧩</span><img class="tab-img" src="" alt="" onerror="this.style.display='none'"></div><span class="tab-label">助詞</span></button>
+    <button class="tab" data-page="collocation"><div class="tab-icon"><span class="tab-emoji">🔗</span><img class="tab-img" src="" alt="" onerror="this.style.display='none'"></div><span class="tab-label">固定詞組</span></button>
+    <button class="tab" data-page="conjunction"><div class="tab-icon"><span class="tab-emoji">➡️</span><img class="tab-img" src="" alt="" onerror="this.style.display='none'"></div><span class="tab-label">連結詞</span></button>
+    <button class="tab" data-page="onomatopoeia"><div class="tab-icon"><span class="tab-emoji">🔊</span><img class="tab-img" src="" alt="" onerror="this.style.display='none'"></div><span class="tab-label">擬聲擬態</span></button>
+    <button class="tab" data-page="idiom"><div class="tab-icon"><span class="tab-emoji">💬</span><img class="tab-img" src="" alt="" onerror="this.style.display='none'"></div><span class="tab-label">慣用句</span></button>
+    <button class="tab" data-page="daily"><div class="tab-icon"><span class="tab-emoji">✨</span><img class="tab-img" src="" alt="" onerror="this.style.display='none'"></div><span class="tab-label">下品な日本語</span></button>
+    <button class="tab" data-page="favorites"><div class="tab-icon"><span class="tab-emoji">⭐</span><img class="tab-img" src="" alt="" onerror="this.style.display='none'"></div><span class="tab-label">收藏</span></button>
+  </nav>
+</div>
+
+<main id="app">
+  <div class="page active" id="page-home">
+    <div class="page-title">おかえりなさい 👋</div>
+    <div class="page-subtitle">今日も一緒に日本語を頑張ろう</div>
+    <div class="home-stats">
+      <div class="stat-card timer">
+        <div class="stat-icon">⏱</div>
+        <div class="stat-content">
+          <div class="stat-label">學習時間</div>
+          <div class="stat-value" id="studyTimer">00:00</div>
+        </div>
+      </div>
+      <button class="stat-card count" id="statsToggle">
+        <div class="stat-icon">📊</div>
+        <div class="stat-content">
+          <div class="stat-label">已溫習內容 <span class="chevron" id="statsChevron">▼</span></div>
+          <div class="stat-value" id="totalStudied">0</div>
+        </div>
+      </button>
+    </div>
+    <div class="stats-detail" id="statsDetail"></div>
+    <div class="section-head">
+      <div class="section-title">隨機 Q-Card</div>
+      <div class="section-hint">點擊前往複習</div>
+    </div>
+    <div class="q-grid" id="qGrid"></div>
+    <div class="section-head">
+      <div class="section-title">模擬試題</div>
+      <div class="section-hint">文法選擇 × 10</div>
+    </div>
+    <div class="quiz-wrap">
+      <div class="quiz-head"><h3>🎯 文法測驗</h3></div>
+      <div class="quiz-hint">每刷新頁面試題自動更新，點選答案即可對答。</div>
+      <div id="quizList"></div>
+    </div>
+  </div>
+
+  <div class="page" id="page-vocab">
+    <div class="page-title">單詞 <span class="count" id="count-vocab">0</span></div>
+    <div class="page-subtitle">漢字・假名・例句・同音詞・易錯音</div>
+    <div class="db-manager">
+      <button class="db-manager-toggle" onclick="toggleDBManager(this)"><span>⚙️ 資料管理</span><span class="chev">▼</span></button>
+      <div class="db-bar collapsed">
+        <button class="db-btn primary" onclick="openDB('vocab','import')">📥 匯入</button>
+        <button class="db-btn" onclick="exportData('vocab')">📤 匯出</button>
+        <button class="db-btn" onclick="openDB('vocab','add')">➕ 新增</button>
+        <button class="db-btn" onclick="resetData('vocab')">🔄 還原</button>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="search-wrap"><span class="search-icon">🔍</span><input type="text" placeholder="搜尋單詞、假名、意思..." id="search-vocab" oninput="renderCategory('vocab')"></div>
+      <div class="filter-row">
+        <select id="level-vocab" onchange="renderCategory('vocab')"><option value="">全部級別</option><option>N5</option><option>N4</option><option>N3</option><option>N2</option><option>N1</option></select>
+        <select id="sort-vocab" onchange="renderCategory('vocab')"><option value="kana">假名順</option><option value="kanji">漢字順</option></select>
+      </div>
+    </div>
+    <div class="card-list" id="list-vocab"></div>
+  </div>
+
+  <div class="page" id="page-grammar">
+    <div class="page-title">文法 <span class="count" id="count-grammar">0</span></div>
+    <div class="page-subtitle">用法・例句・易混淆提醒</div>
+    <div class="db-manager">
+      <button class="db-manager-toggle" onclick="toggleDBManager(this)"><span>⚙️ 資料管理</span><span class="chev">▼</span></button>
+      <div class="db-bar collapsed">
+        <button class="db-btn primary" onclick="openDB('grammar','import')">📥 匯入</button>
+        <button class="db-btn" onclick="exportData('grammar')">📤 匯出</button>
+        <button class="db-btn" onclick="openDB('grammar','add')">➕ 新增</button>
+        <button class="db-btn" onclick="resetData('grammar')">🔄 還原</button>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="search-wrap"><span class="search-icon">🔍</span><input type="text" placeholder="搜尋文法、意思..." id="search-grammar" oninput="renderCategory('grammar')"></div>
+      <div class="filter-row">
+        <select id="level-grammar" onchange="renderCategory('grammar')"><option value="">全部級別</option><option>N5</option><option>N4</option><option>N3</option><option>N2</option><option>N1</option></select>
+        <select id="sort-grammar" onchange="renderCategory('grammar')"><option value="kana">假名順</option><option value="grammar">文法順</option></select>
+      </div>
+    </div>
+    <div class="card-list" id="list-grammar"></div>
+  </div>
+
+  <div class="page" id="page-particle">
+    <div class="page-title">助詞 <span class="count" id="count-particle">0</span></div>
+    <div class="page-subtitle">助詞用法・相關文法</div>
+    <div class="db-manager">
+      <button class="db-manager-toggle" onclick="toggleDBManager(this)"><span>⚙️ 資料管理</span><span class="chev">▼</span></button>
+      <div class="db-bar collapsed">
+        <button class="db-btn primary" onclick="openDB('particle','import')">📥 匯入</button>
+        <button class="db-btn" onclick="exportData('particle')">📤 匯出</button>
+        <button class="db-btn" onclick="openDB('particle','add')">➕ 新增</button>
+        <button class="db-btn" onclick="resetData('particle')">🔄 還原</button>
+      </div>
+    </div>
+    <div class="toolbar"><div class="search-wrap"><span class="search-icon">🔍</span><input type="text" placeholder="搜尋助詞..." id="search-particle" oninput="renderCategory('particle')"></div></div>
+    <div class="card-list" id="list-particle"></div>
+  </div>
+
+  <div class="page" id="page-collocation">
+    <div class="page-title">固定詞組 <span class="count" id="count-collocation">0</span></div>
+    <div class="page-subtitle">助詞以紅色標示</div>
+    <div class="db-manager">
+      <button class="db-manager-toggle" onclick="toggleDBManager(this)"><span>⚙️ 資料管理</span><span class="chev">▼</span></button>
+      <div class="db-bar collapsed">
+        <button class="db-btn primary" onclick="openDB('collocation','import')">📥 匯入</button>
+        <button class="db-btn" onclick="exportData('collocation')">📤 匯出</button>
+        <button class="db-btn" onclick="openDB('collocation','add')">➕ 新增</button>
+        <button class="db-btn" onclick="resetData('collocation')">🔄 還原</button>
+      </div>
+    </div>
+    <div class="toolbar"><div class="search-wrap"><span class="search-icon">🔍</span><input type="text" placeholder="搜尋詞組..." id="search-collocation" oninput="renderCategory('collocation')"></div></div>
+    <div class="card-list" id="list-collocation"></div>
+  </div>
+
+  <div class="page" id="page-conjunction">
+    <div class="page-title">連結詞 <span class="count" id="count-conjunction">0</span></div>
+    <div class="page-subtitle">接續關係整理</div>
+    <div class="db-manager">
+      <button class="db-manager-toggle" onclick="toggleDBManager(this)"><span>⚙️ 資料管理</span><span class="chev">▼</span></button>
+      <div class="db-bar collapsed">
+        <button class="db-btn primary" onclick="openDB('conjunction','import')">📥 匯入</button>
+        <button class="db-btn" onclick="exportData('conjunction')">📤 匯出</button>
+        <button class="db-btn" onclick="openDB('conjunction','add')">➕ 新增</button>
+        <button class="db-btn" onclick="resetData('conjunction')">🔄 還原</button>
+      </div>
+    </div>
+    <div class="toolbar"><div class="search-wrap"><span class="search-icon">🔍</span><input type="text" placeholder="搜尋連結詞..." id="search-conjunction" oninput="renderCategory('conjunction')"></div></div>
+    <div class="card-list" id="list-conjunction"></div>
+  </div>
+
+  <div class="page" id="page-onomatopoeia">
+    <div class="page-title">擬聲擬態 <span class="count" id="count-onomatopoeia">0</span></div>
+    <div class="page-subtitle">擬聲詞・擬態詞</div>
+    <div class="db-manager">
+      <button class="db-manager-toggle" onclick="toggleDBManager(this)"><span>⚙️ 資料管理</span><span class="chev">▼</span></button>
+      <div class="db-bar collapsed">
+        <button class="db-btn primary" onclick="openDB('onomatopoeia','import')">📥 匯入</button>
+        <button class="db-btn" onclick="exportData('onomatopoeia')">📤 匯出</button>
+        <button class="db-btn" onclick="openDB('onomatopoeia','add')">➕ 新增</button>
+        <button class="db-btn" onclick="resetData('onomatopoeia')">🔄 還原</button>
+      </div>
+    </div>
+    <div class="toolbar"><div class="search-wrap"><span class="search-icon">🔍</span><input type="text" placeholder="搜尋擬聲擬態詞..." id="search-onomatopoeia" oninput="renderCategory('onomatopoeia')"></div></div>
+    <div class="card-list" id="list-onomatopoeia"></div>
+  </div>
+
+  <div class="page" id="page-idiom">
+    <div class="page-title">慣用短句 <span class="count" id="count-idiom">0</span></div>
+    <div class="page-subtitle">慣用語・假名・意思</div>
+    <div class="db-manager">
+      <button class="db-manager-toggle" onclick="toggleDBManager(this)"><span>⚙️ 資料管理</span><span class="chev">▼</span></button>
+      <div class="db-bar collapsed">
+        <button class="db-btn primary" onclick="openDB('idiom','import')">📥 匯入</button>
+        <button class="db-btn" onclick="exportData('idiom')">📤 匯出</button>
+        <button class="db-btn" onclick="openDB('idiom','add')">➕ 新增</button>
+        <button class="db-btn" onclick="resetData('idiom')">🔄 還原</button>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="search-wrap"><span class="search-icon">🔍</span><input type="text" placeholder="搜尋短句、意思..." id="search-idiom" oninput="renderCategory('idiom')"></div>
+      <div class="filter-row"><select id="level-idiom" onchange="renderCategory('idiom')"><option value="">全部級別</option><option>N5</option><option>N4</option><option>N3</option><option>N2</option><option>N1</option></select></div>
+    </div>
+    <div class="card-list" id="list-idiom"></div>
+  </div>
+
+  <div class="page" id="page-daily">
+    <div class="page-title">下品な日本語</div>
+    <div class="page-subtitle">㊙️正常學習不會學到的東西。</div>
+    <div class="db-manager">
+      <button class="db-manager-toggle" onclick="toggleDBManager(this)"><span>⚙️ 資料管理</span><span class="chev">▼</span></button>
+      <div class="db-bar collapsed">
+        <button class="db-btn primary" onclick="openDB('daily','import')">📥 匯入</button>
+        <button class="db-btn" onclick="exportData('daily')">📤 匯出</button>
+        <button class="db-btn" onclick="openDB('daily','add')">➕ 新增</button>
+        <button class="db-btn" onclick="resetData('daily')">🔄 還原</button>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="search-wrap"><span class="search-icon">🔍</span><input type="text" placeholder="搜尋生活日語..." id="search-daily" oninput="renderCategory('daily')"></div>
+      <div class="filter-row"><select id="level-daily" onchange="renderCategory('daily')"><option value="">親密度</option><option>陌生人</option><option>認識的人</option><option>熟人</option><option>朋友</option><option>死黨</option></select></div>
+    </div>
+    <div class="card-list" id="list-daily"></div>
+  </div>
+
+  <div class="page" id="page-exam">
+    <div class="page-title">考試重點 <span class="count" id="count-exam">0</span></div>
+    <div class="page-subtitle">分級整理・混淆提醒・連結文法</div>
+    <div class="db-manager">
+      <button class="db-manager-toggle" onclick="toggleDBManager(this)"><span>⚙️ 資料管理</span><span class="chev">▼</span></button>
+      <div class="db-bar collapsed">
+        <button class="db-btn primary" onclick="openDB('exam','import')">📥 匯入</button>
+        <button class="db-btn" onclick="exportData('exam')">📤 匯出</button>
+        <button class="db-btn" onclick="openDB('exam','add')">➕ 新增</button>
+        <button class="db-btn" onclick="resetData('exam')">🔄 還原</button>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="search-wrap"><span class="search-icon">🔍</span><input type="text" placeholder="搜尋考試重點..." id="search-exam" oninput="renderCategory('exam')"></div>
+      <div class="filter-row"><select id="level-exam" onchange="renderCategory('exam')"><option value="">全部級別</option><option>N5</option><option>N4</option><option>N3</option><option>N2</option><option>N1</option></select></div>
+    </div>
+    <div class="card-list" id="list-exam"></div>
+  </div>
+
+  <div class="page" id="page-favorites">
+    <div class="page-title">已收藏 <span class="count" id="count-favorites">0</span></div>
+    <div class="page-subtitle">你收藏的所有內容</div>
+    <div class="toolbar"><div class="search-wrap"><span class="search-icon">🔍</span><input type="text" placeholder="搜尋收藏..." id="search-favorites" oninput="renderFavorites()"></div></div>
+    <div class="card-list" id="list-favorites"></div>
+  </div>
+</main>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<div class="modal-overlay" id="modalOverlay"><div class="modal" id="modalContent"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const DEFAULT_DATA = {
+  vocab: [
+    { id:'v1', kanji:'勉強', kana:'べんきょう', level:'N5', meaning:'學習', category:'名詞・サ変', example:'毎日日本語を勉強します。', confused:'勉強（學習） vs 習う（學習技能）', mazii:'https://mazii.net/zh-TW/search/word?word=勉強', homophoneKanji:'勉彊（異體字）', homophoneMeaning:'', errorProne:'べんきょう：促音「きょ」後接長音「う」，勿讀成「べんきよう」' },
+    { id:'v2', kanji:'経験', kana:'けいけん', level:'N3', meaning:'經驗', category:'名詞・サ変', example:'貴重な経験を積む。', confused:'経験（經驗） vs 体験（體驗）', mazii:'https://mazii.net/zh-TW/search/word?word=経験', homophoneKanji:'敬虔、掲見', homophoneMeaning:'敬虔＝虔誠；掲見＝拜見（罕用）', errorProne:'けいけん：兩個長音「い」與「ん」都要清楚，勿縮短為「けけん」' },
+    { id:'v3', kanji:'確認', kana:'かくにん', level:'N3', meaning:'確認', category:'名詞・サ変', example:'事実を確認する。', confused:'確認（確認） vs 検査（檢查）', mazii:'https://mazii.net/zh-TW/search/word?word=確認', homophoneKanji:'各人（かくじん，讀音相近）', homophoneMeaning:'各人＝每個人（意思不同）', errorProne:'かくにん：「かく」不讀濁音「がく」，留意清音' },
+    { id:'v4', kanji:'影響', kana:'えいきょう', level:'N2', meaning:'影響', category:'名詞', example:'環境に影響を与える。', confused:'影響（影響） vs 効果（效果）', mazii:'https://mazii.net/zh-TW/search/word?word=影響', homophoneKanji:'', homophoneMeaning:'営業（えいぎょう）濁音不同，意思不同', errorProne:'えいきょう：「きょう」為拗長音，勿讀成「きよう」' },
+    { id:'v5', kanji:'解決', kana:'かいけつ', level:'N3', meaning:'解決', category:'名詞・サ変', example:'問題を解決する。', confused:'解決（解決） vs 回復（恢復）', mazii:'https://mazii.net/zh-TW/search/word?word=解決', homophoneKanji:'怪傑', homophoneMeaning:'怪傑＝奇人、怪傑（意思不同）', errorProne:'かいけつ：「けつ」促音短促有力，勿拖長' },
+    { id:'v6', kanji:'準備', kana:'じゅんび', level:'N4', meaning:'準備', category:'名詞・サ変', example:'旅行の準備をする。', confused:'準備（準備） vs 用意（預備）', mazii:'https://mazii.net/zh-TW/search/word?word=準備', homophoneKanji:'', homophoneMeaning:'', errorProne:'じゅんび：「じゅん」為拗音＋撥音，勿讀成「じゅんび」拖拍' },
+    { id:'v7', kanji:'約束', kana:'やくそく', level:'N4', meaning:'約定', category:'名詞・サ変', example:'友達と約束がある。', confused:'約束（約定） vs 契約（契約）', mazii:'https://mazii.net/zh-TW/search/word?word=約束', homophoneKanji:'', homophoneMeaning:'', errorProne:'やくそく：第二個「く」勿漏讀，注意「そく」的促音感' },
+    { id:'v8', kanji:'遠慮', kana:'えんりょ', level:'N3', meaning:'客氣・顧慮', category:'名詞・サ変', example:'遠慮なく食べてください。', confused:'遠慮（客氣） vs 迷惑（麻煩）', mazii:'https://mazii.net/zh-TW/search/word?word=遠慮', homophoneKanji:'', homophoneMeaning:'', errorProne:'えんりょ：「りょ」為拗音，佔一拍，勿讀成「りよ」' }
+  ],
+  grammar: [
+    { id:'g1', grammar:'～がたい', kana:'～がたい', level:'N2', meaning:'難以…', usage:'動ます形＋がたい', confused:'～かねる（主觀上難以） vs ～がたい（客觀上難以）' },
+    { id:'g2', grammar:'～切る', kana:'～きる', level:'N3', meaning:'完全…・達到極限', usage:'動ます形＋切る', confused:'～切る（完成） vs ～終わる（結束）' },
+    { id:'g3', grammar:'～以上（は）', kana:'～いじょう（は）', level:'N2', meaning:'既然…', usage:'普通形＋以上（は）', confused:'～上は（只接過去式）' },
+    { id:'g4', grammar:'～一方（で）', kana:'～いっぽう（で）', level:'N2', meaning:'一方面…另一方面…', usage:'連體形＋一方で', confused:'～うえ（に）（遞進關係）' },
+    { id:'g5', grammar:'～うちに', kana:'～うちに', level:'N3', meaning:'趁著…・在…過程中', usage:'普通形＋うちに', confused:'～かと思うと（剛…就…）' },
+    { id:'g6', grammar:'～がちだ', kana:'～がちだ', level:'N2', meaning:'容易…・往往…', usage:'動ます形／名詞＋がちだ', confused:'～かけだ（做到一半）' },
+    { id:'g7', grammar:'～かねる', kana:'～かねる', level:'N2', meaning:'難以…・無法…', usage:'動ます形＋かねる', confused:'～がたい（客觀上難以）' },
+    { id:'g8', grammar:'～ざるを得ない', kana:'～ざるをえない', level:'N2', meaning:'不得不…', usage:'動ない形＋ざるを得ない', confused:'～しかない（只能…）' }
+  ],
+  particle: [
+    { id:'pt1', kanji:'は', kana:'は', meaning:'提示主題', related:'' },
+    { id:'pt2', kanji:'が', kana:'が', meaning:'提示主語', related:'' },
+    { id:'pt3', kanji:'を', kana:'を', meaning:'提示賓語', related:'' },
+    { id:'pt4', kanji:'に', kana:'に', meaning:'提示時間・地點・對象', related:'' },
+    { id:'pt5', kanji:'で', kana:'で', meaning:'提示地點・手段', related:'' },
+    { id:'pt6', kanji:'と', kana:'と', meaning:'和・與', related:'' },
+    { id:'pt7', kanji:'も', kana:'も', meaning:'也', related:'' },
+    { id:'pt8', kanji:'の', kana:'の', meaning:'的・所有格', related:'' }
+  ],
+  collocation: [
+    { id:'c1', kanji:'薬を飲む', kana:'くすりをのむ', meaning:'吃藥', particles:[{t:'を',p:true}] },
+    { id:'c2', kanji:'風邪をひく', kana:'かぜをひく', meaning:'感冒', particles:[{t:'を',p:true}] },
+    { id:'c3', kanji:'歯をみがく', kana:'はをみがく', meaning:'刷牙', particles:[{t:'を',p:true}] },
+    { id:'c4', kanji:'傘をさす', kana:'かさをさす', meaning:'撐傘', particles:[{t:'を',p:true}] },
+    { id:'c5', kanji:'電話をかける', kana:'でんわをかける', meaning:'打電話', particles:[{t:'を',p:true}] },
+    { id:'c6', kanji:'先生に相談する', kana:'せんせいにそうだんする', meaning:'和老師商量', particles:[{t:'に',p:true}] },
+    { id:'c7', kanji:'公園を散歩する', kana:'こうえんをさんぽする', meaning:'在公園散步', particles:[{t:'を',p:true}] },
+    { id:'c8', kanji:'電車に乗る', kana:'でんしゃにのる', meaning:'坐電車', particles:[{t:'に',p:true}] }
+  ],
+  conjunction: [
+    { id:'cn1', kanji:'そして', kana:'そして', meaning:'而且・然後', related:'' },
+    { id:'cn2', kanji:'それから', kana:'それから', meaning:'然後・從那以後', related:'' },
+    { id:'cn3', kanji:'しかし', kana:'しかし', meaning:'但是', related:'' },
+    { id:'cn4', kanji:'だから', kana:'だから', meaning:'所以', related:'' },
+    { id:'cn5', kanji:'また', kana:'また', meaning:'又・而且', related:'' },
+    { id:'cn6', kanji:'しかも', kana:'しかも', meaning:'而且・並且', related:'' },
+    { id:'cn7', kanji:'したがって', kana:'したがって', meaning:'因此（正式）', related:'' },
+    { id:'cn8', kanji:'ところが', kana:'ところが', meaning:'然而・可是', related:'' }
+  ],
+  onomatopoeia: [
+    { id:'o1', word:'どんどん', kana:'どんどん', meaning:'連續不斷・順利進行' },
+    { id:'o2', word:'ぴったり', kana:'ぴったり', meaning:'緊緊地・正好' },
+    { id:'o3', word:'はっきり', kana:'はっきり', meaning:'清楚地・明確地' },
+    { id:'o4', word:'ぐずぐず', kana:'ぐずぐず', meaning:'磨磨蹭蹭・嘟囔' },
+    { id:'o5', word:'きらきら', kana:'きらきら', meaning:'閃閃發光' },
+    { id:'o6', word:'わくわく', kana:'わくわく', meaning:'興奮・期待' },
+    { id:'o7', word:'びしょびしょ', kana:'びしょびしょ', meaning:'濕透' },
+    { id:'o8', word:'ぺらぺら', kana:'ぺらぺら', meaning:'流利地・薄' }
+  ],
+  idiom: [
+    { id:'i1', phrase:'気が合う', kana:'きがあう', meaning:'合得來、投緣', level:'N3' },
+    { id:'i2', phrase:'気が付く', kana:'きがつく', meaning:'注意到、察覺到', level:'N3' },
+    { id:'i3', phrase:'気が長い', kana:'きがながい', meaning:'慢性子', level:'N2' },
+    { id:'i4', phrase:'気が短い', kana:'きがみじかい', meaning:'性子急', level:'N2' },
+    { id:'i5', phrase:'目が高い', kana:'めがたかい', meaning:'有眼光', level:'N2' },
+    { id:'i6', phrase:'目を通す', kana:'めをとおす', meaning:'過目、瀏覽', level:'N2' },
+    { id:'i7', phrase:'手を貸す', kana:'てをかす', meaning:'幫忙', level:'N3' },
+    { id:'i8', phrase:'耳が痛い', kana:'みみがいたい', meaning:'聽不進去、刺耳', level:'N2' }
+  ],
+  daily: [
+    { id:'d1', phrase:'いい加減にして', kana:'いい加減にして', meaning:'夠喇喎', level:'熟人', note:'想人收聲時用~' },
+    { id:'d2', phrase:'何様のつもり？', kana:'なにさまのつもり？', meaning:'你以為你係乜水', level:'熟人', note:'咩時候都可以用~' },
+    { id:'d3', phrase:'あり得ない', kana:'ありえない', meaning:'有冇搞錯', level:'陌生人', note:'事情超出想像時~' },
+    { id:'d4', phrase:'夢でも見てろ', kana:'ゆめでもみてろ', meaning:'發夢啦你', level:'熟人', note:'覺得對方提出既要求離時~' },
+    { id:'d5', phrase:'しつこい', kana:'しつこい', meaning:'收聲啦', level:'熟人', note:'覺得對方好嘈既時間~' },
+    { id:'d6', phrase:'何やってんの？', kana:'なにやってんの？', meaning:'你做乜X？', level:'熟人', note:'真心地發出疑問~' },
+    { id:'d7', phrase:'ふざけないで', kana:'ふざけないで', meaning:'咪玩啦', level:'熟人', note:'煩躁時用~' },
+    { id:'d8', phrase:'近寄らないで', kana:'ちかよらないで', meaning:'死遠啲啦', level:'死黨', note:'覺得對方超煩時用~' }
+  ],
+  exam: [
+    { id:'e1', level:'N3', points:[{ text:'助詞「は」提示主題，「が」提示主語。', link:'' },{ text:'「～ておく」表示事前準備，「～てある」表示狀態留存。', link:'' }]},
+    { id:'e2', level:'N2', points:[{ text:'～がたい偏客觀，～かねる偏主觀。', link:'g1' },{ text:'～一方是對比，～うえに是遞進。', link:'g4' },{ text:'～うちに強調期間，～かと思うと強調先後緊接。', link:'g5' }]}
+  ]
+};
+
+const QUIZ_BANK = [
+  { q:'彼の気持ちは本当に理解（　）。', opts:['がたい','かねる','やすい','にくい'], ans:0, fb:'～がたい：客觀上難以…' },
+  { q:'こんな重大なことは私一人では決め（　）。', opts:['かねる','がたい','きる','ぬく'], ans:0, fb:'～かねる：主觀上難以接受或做不到' },
+  { q:'学生である（　）、真面目に勉強すべきです。', opts:['以上','うえに','うちに','かわりに'], ans:0, fb:'～以上（は）：既然…就…' },
+  { q:'兄は明るい性格だ。（　）、弟は無口だ。', opts:['一方で','うえに','さらに','そのうえ'], ans:0, fb:'～一方で：一方面…另一方面…' },
+  { q:'若い（　）、いろいろな経験をしたほうがいい。', opts:['うちに','あいだ','あいだに','まえに'], ans:0, fb:'～うちに：趁著…' },
+  { q:'地震の時は、とかく慌て（　）。', opts:['がちだ','かけだ','やすい','にくい'], ans:0, fb:'～がちだ：容易…・往往…' },
+  { q:'彼は実業家である（　）、芸術家でもある。', opts:['上に','一方で','かわりに','にもまして'], ans:0, fb:'～上に：不僅…而且…（遞進）' },
+  { q:'そんなに無理をすると、体を壊し（　）よ。', opts:['かねない','がたい','きれない','ぬけない'], ans:0, fb:'～かねない：有可能…（不好的結果）' },
+  { q:'この小説は長すぎて、一日では読み（　）。', opts:['切れない','がたい','かねる','にくい'], ans:0, fb:'～切れない：不可能完全…' },
+  { q:'雷が鳴った（　）、たちまち雨が降り出した。', opts:['かと思うと','うちに','あいだに','とたん'], ans:0, fb:'～かと思うと：剛…就…' },
+  { q:'事実がそうであった（　）、仕方がない。', opts:['上は','以上','うえに','うちに'], ans:0, fb:'～上は：既然已經…（只接過去式）' },
+  { q:'彼の話は具体的で、（　）説得力がある。', opts:['しかも','しかし','だから','ところが'], ans:0, fb:'しかも：而且・並且（遞加）' },
+  { q:'一生懸命勉強した。（　）、試験に合格した。', opts:['だから','しかし','ところが','また'], ans:0, fb:'だから：所以（順接原因）' },
+  { q:'雨が降っている。（　）、試合は中止になった。', opts:['だから','しかし','しかも','また'], ans:0, fb:'だから：所以（客觀結果）' },
+  { q:'彼は日本語（　）英語（　）話せる。', opts:['も／も','が／が','を／を','に／に'], ans:0, fb:'も…も：都…（並列）' },
+  { q:'毎朝、公園（　）散歩します。', opts:['を','に','で','が'], ans:0, fb:'を＋移動動詞：穿越・經過的場所' },
+  { q:'電車（　）乗って、会社へ行きます。', opts:['に','で','を','と'], ans:0, fb:'に乗る：乘坐交通工具' },
+  { q:'私（　）兄弟が三人います。', opts:['には','では','とは','へは'], ans:0, fb:'には：存在地點・所有' }
+];
+
+const CAT_LABELS = {
+  vocab:'單詞', grammar:'文法', particle:'助詞', collocation:'固定詞組',
+  conjunction:'連結詞', onomatopoeia:'擬聲擬態', idiom:'慣用短句',
+  daily:'生活日語', exam:'考試重點'
+};
+const CAT_ICONS = {
+  vocab:'📖', grammar:'📐', particle:'🧩', collocation:'🔗',
+  conjunction:'➡️', onomatopoeia:'🔊', idiom:'💬',
+  daily:'✨', exam:'🎯'
+};
+const CAT_ORDER = ['vocab','grammar','particle','collocation','conjunction','onomatopoeia','idiom','daily','exam'];
+
+const PLACEHOLDER_VALUES = new Set([
+  '', '無', 'なし', '無し', '（無）', '(無)', '【無】', '／', '/', '—', '-', '–',
+  'n/a', 'na', 'nil', 'none', 'null', '沒有', '暂无', '暫無',
+  '（無常用同音漢字）', '（無常用同音異義詞）', '（無常用同音異義）',
+  '無常用', '無同音', '無易錯', '無混淆', '無此項'
+]);
+function isMeaningful(val) {
+  if (val == null) return false;
+  if (Array.isArray(val)) return val.length > 0;
+  const s = String(val).trim();
+  if (!s) return false;
+  if (PLACEHOLDER_VALUES.has(s)) return false;
+  if (/^[（(【\[「『\s）)】\]」』]+$/.test(s)) return false;
+  return true;
+}
+function escapeHtml(str) {
+  if (str == null) return '';
+  return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+const STORE_KEY = 'jp_study_tool_v8';
+const THEME_KEY = 'jp_study_theme';
+let state = {
+  data: JSON.parse(JSON.stringify(DEFAULT_DATA)),
+  favorites: [],
+  studied: { vocab:0, grammar:0, particle:0, collocation:0, conjunction:0, onomatopoeia:0, idiom:0, daily:0, exam:0 },
+  seconds: 0
+};
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem(STORE_KEY);
+    if (saved) {
+      const p = JSON.parse(saved);
+      if (p.data) {
+        const base = JSON.parse(JSON.stringify(DEFAULT_DATA));
+        Object.keys(p.data).forEach(k => {
+          if (Array.isArray(p.data[k])) base[k] = p.data[k];
+        });
+        state.data = base;
+      }
+      if (Array.isArray(p.favorites)) state.favorites = p.favorites;
+      if (p.studied) state.studied = { ...state.studied, ...p.studied };
+      if (typeof p.seconds === 'number') state.seconds = p.seconds;
+    }
+  } catch(e) { console.warn('loadState error', e); }
+}
+function saveState() {
+  try { localStorage.setItem(, JSON.stringify(state)); }
+  catch(e) { showToast('⚠️ 儲存空間已滿，請清理部分內容。', 4000); }
+}
+
+let toastTimer = null;
+function showToast(msg, duration) {
+  duration = duration || 3200;
+  const t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ t.classList.remove('show'); }, duration);
+}
+
+function applyTheme(theme) {
+  document.body.dataset.theme = theme;
+  const btn = document.getElementById('themeBtn');
+  if (btn) btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute('content', theme === 'dark' ? '#1a1714' : '#f7f4ef');
+}
+function toggleTheme() {
+  const next = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  try { localStorage.setItem(THEME_KEY, next); } catch(e) {}
+}
+const themeBtnEl = document.getElementById('themeBtn');
+if (themeBtnEl) themeBtnEl.addEventListener('click', toggleTheme);
+
+let currentPage = 'home';
+function goToPage(page) {
+  document.querySelectorAll('.tab').forEach(function(b){ b.classList.toggle('active', b.dataset.page === page); });
+  currentPage = page;
+  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+  let target = document.getElementById('page-' + page);
+  if (!target) {
+    console.warn('Page not found:', page);
+    target = document.getElementById('page-home');
+    page = 'home';
+  }
+  target.classList.add('active');
+  if (page === 'favorites') renderFavorites();
+  else if (page !== 'home') renderCategory(page);
+  window.scrollTo({top:0});
+  if (page !== 'home' && state.studied[page] !== undefined) {
+    state.studied[page]++;
+    saveState();
+    updateStatsDisplay();
+  }
+}
+document.querySelectorAll('.tab').forEach(function(btn){
+  btn.addEventListener('click', function(){ goToPage(btn.dataset.page); });
+});
+
+function renderQGrid() {
+  const grid = document.getElementById('qGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  CAT_ORDER.forEach(function(cat){
+    const list = state.data[cat] || [];
+    if (!list.length) return;
+    const item = list[Math.floor(Math.random() * list.length)];
+    let main = '', sub = '';
+    if (cat === 'vocab') { main = item.kanji || ''; sub = (item.kana||'') + ' · ' + (item.meaning||''); }
+    else if (cat === 'grammar') { main = item.grammar || ''; sub = item.meaning || ''; }
+    else if (cat === 'exam') {
+      main = (item.level || '') + ' 重點';
+      const firstPt = (item.points && item.points[0] && item.points[0].text) || '';
+      sub = firstPt.slice(0, 20) + '…';
+    }
+    else if (cat === 'idiom') { main = item.phrase || ''; sub = item.meaning || ''; }
+    else if (cat === 'collocation') { main = item.kanji || ''; sub = item.meaning || ''; }
+    else if (cat === 'onomatopoeia') { main = item.word || ''; sub = item.meaning || ''; }
+    else if (cat === 'conjunction') { main = item.kanji || ''; sub = item.meaning || ''; }
+    else if (cat === 'particle') { main = '「' + (item.kanji||'') + '」'; sub = item.meaning || ''; }
+    else if (cat === 'daily') { main = item.phrase || ''; sub = item.meaning || ''; }
+
+    const btn = document.createElement('button');
+    btn.className = 'q-tile';
+    btn.dataset.cat = cat;
+    btn.innerHTML = '<div class="q-tile-top"><span class="q-tile-icon">' + CAT_ICONS[cat] + '</span><span>' + CAT_LABELS[cat] + '</span></div>' +
+                    '<div class="q-tile-main">' + escapeHtml(main) + '</div>' +
+                    '<div class="q-tile-sub">' + escapeHtml(sub) + '</div>';
+    btn.addEventListener('click', function(){ goToPage(cat); });
+    grid.appendChild(btn);
+  });
+}
+
+function renderQuiz() {
+  const container = document.getElementById('quizList');
+  if (!container) return;
+  const shuffled = QUIZ_BANK.slice().sort(function(){ return Math.random() - 0.5; }).slice(0, 10);
+  container.innerHTML = '';
+  shuffled.forEach(function(item, idx){
+    const div = document.createElement('div');
+    div.className = 'quiz-item';
+    const qEl = document.createElement('div');
+    qEl.className = 'quiz-q';
+    qEl.innerHTML = '<span class="q-num">' + (idx+1) + '</span>' + escapeHtml(item.q);
+    div.appendChild(qEl);
+    const opts = document.createElement('div');
+    opts.className = 'quiz-options';
+    item.opts.forEach(function(opt, oi){
+      const b = document.createElement('button');
+      b.className = 'quiz-opt';
+      b.textContent = opt;
+      b.addEventListener('click', function(){
+        if (b.classList.contains('correct') || b.classList.contains('wrong')) return;
+        if (oi === item.ans) b.classList.add('correct');
+        else {
+          b.classList.add('wrong');
+          opts.children[item.ans].classList.add('correct');
+        }
+        const fb = document.createElement('div');
+        fb.className = 'quiz-feedback';
+        fb.textContent = '💡 ' + item.fb;
+        div.appendChild(fb);
+      });
+      opts.appendChild(b);
+    });
+    div.appendChild(opts);
+    container.appendChild(div);
+  });
+}
+
+let timerInterval = null;
+let timerActive = true;
+function startTimer() {
+  if (timerInterval) clearInterval(timerInterval);
+  timerInterval = setInterval(function(){
+    if (timerActive && document.visibilityState === 'visible') {
+      state.seconds++;
+      updateTimerDisplay();
+      if (state.seconds % 15 === 0) saveState();
+    }
+  }, 1000);
+}
+function updateTimerDisplay() {
+  const m = Math.floor(state.seconds / 60);
+  const s = state.seconds % 60;
+  const str = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  const a = document.getElementById('studyTimer');
+  const b = document.getElementById('headerTimer');
+  if (a) a.textContent = str;
+  if (b) b.textContent = str;
+}
+document.addEventListener('visibilitychange', function(){
+  timerActive = document.visibilityState === 'visible';
+});
+
+function updateStatsDisplay() {
+  const total = Object.values(state.studied).reduce(function(a,b){ return a+b; }, 0);
+  const el = document.getElementById('totalStudied');
+  if (el) el.textContent = total;
+  const detail = document.getElementById('statsDetail');
+  if (detail) {
+    let html = Object.entries(state.studied)
+      .filter(function(e){ return e[1] > 0; })
+      .map(function(e){ return '<span class="stat-item">' + (CAT_ICONS[e[0]]||'') + ' ' + (CAT_LABELS[e[0]]||e[0]) + ' <b>' + e[1] + '</b></span>'; })
+      .join('');
+    if (!html) html = '<span class="stat-item" style="color:var(--text-3);">還沒有溫習紀錄</span>';
+    detail.innerHTML = html;
+  }
+}
+const statsToggleEl = document.getElementById('statsToggle');
+if (statsToggleEl) statsToggleEl.addEventListener('click', function(){
+  const d = document.getElementById('statsDetail');
+  const c = document.getElementById('statsChevron');
+  if (d) d.classList.toggle('show');
+  if (c) c.style.transform = d.classList.contains('show') ? 'rotate(180deg)' : '';
+});
+
+function toggleDBManager(btn) {
+  const bar = btn.nextElementSibling;
+  if (!bar) return;
+  bar.classList.toggle('collapsed');
+  const chev = btn.querySelector('.chev');
+  if (chev) chev.textContent = bar.classList.contains('collapsed') ? '▼' : '▲';
+}
+
+function renderCategory(cat) {
+  try {
+    const container = document.getElementById('list-' + cat);
+    if (!container) return;
+    const countEl = document.getElementById('count-' + cat);
+    const allData = state.data[cat] || [];
+    if (countEl) countEl.textContent = allData.length;
+
+    let list = allData.slice();
+
+    const searchInput = document.getElementById('search-' + cat);
+    const q = searchInput ? (searchInput.value || '').toLowerCase().trim() : '';
+    if (q) list = list.filter(function(item){ return JSON.stringify(item).toLowerCase().indexOf(q) !== -1; });
+
+    const levelSelect = document.getElementById('level-' + cat);
+    const lv = levelSelect ? levelSelect.value : '';
+    if (lv) list = list.filter(function(item){ return item.level === lv; });
+
+    const sortSelect = document.getElementById('sort-' + cat);
+    const sort = sortSelect ? sortSelect.value : 'kana';
+    const getText = function(item) {
+      if (sort === 'kanji') return item.kanji || item.grammar || item.phrase || item.word || item.title || '';
+      return item.kana || item.kanji || item.grammar || item.phrase || item.word || item.title || '';
+    };
+    list.sort(function(a,b){ return getText(a).localeCompare(getText(b), 'ja'); });
+
+    if (!list.length) {
+      container.innerHTML = '<div class="empty"><div class="empty-icon">🍃</div><div class="empty-text">沒有符合條件的內容</div><div class="empty-hint">試試調整搜尋或篩選條件</div></div>';
+      return;
+    }
+
+    container.innerHTML = '';
+    list.forEach(function(item){
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.dataset.id = item.id;
+      const faved = state.favorites.indexOf(item.id) !== -1;
+      let body = '';
+
+      if (cat === 'vocab') {
+        const showHK = isMeaningful(item.homophoneKanji);
+        const showHM = isMeaningful(item.homophoneMeaning);
+        const showEP = isMeaningful(item.errorProne);
+        const showCF = isMeaningful(item.confused);
+        const showEX = isMeaningful(item.example);
+        const hasExtra = showHK || showHM || showEP;
+        body = '<div class="card-top"><div class="card-main"><div class="card-title">' + escapeHtml(item.kanji) + '</div><div class="card-kana">' + escapeHtml(item.kana||'') + '</div></div>' +
+          '<div class="card-actions"><button class="icon-btn ' + (faved?'faved':'') + '" onclick="toggleFav(\'' + item.id + '\',this)">' + (faved?'❤️':'🤍') + '</button>' +
+          '<button class="icon-btn" onclick="editItem(\'' + cat + '\',\'' + item.id + '\')">✏️</button></div></div>' +
+          '<div class="card-meaning">' + escapeHtml(item.meaning||'') + '</div>' +
+          '<div class="card-badges"><span class="chip level">' + escapeHtml(item.level||'') + '</span>' + (item.category ? '<span class="chip cat">' + escapeHtml(item.category) + '</span>' : '') + '</div>' +
+          (hasExtra ? '<div class="word-extra">' +
+            (showHK ? '<div class="extra-row"><span class="extra-label">同音漢字</span><span class="extra-text">' + escapeHtml(item.homophoneKanji) + '</span></div>' : '') +
+            (showHM ? '<div class="extra-row homophone-mean"><span class="extra-label">同音異義</span><span class="extra-text">' + escapeHtml(item.homophoneMeaning) + '</span></div>' : '') +
+            (showEP ? '<div class="extra-row error"><span class="extra-label">易錯音</span><span class="extra-text">' + escapeHtml(item.errorProne) + '</span></div>' : '') +
+          '</div>' : '') +
+          (showEX ? '<div class="example-box"><div class="ex-label">例句</div>' + escapeHtml(item.example) + '</div>' : '') +
+          (showCF ? '<div class="confused-box"><div class="cf-label">易混淆</div>' + escapeHtml(item.confused) + '</div>' : '') +
+          (isMeaningful(item.mazii) ? '<a href="' + escapeHtml(item.mazii) + '" target="_blank" rel="noopener" class="mazii-link">🔗 Mazii 外部連結</a>' : '');
+      } else if (cat === 'grammar') {
+        body = '<div class="card-top"><div class="card-main"><div class="card-title">' + escapeHtml(item.grammar) + '</div><div class="card-kana">' + escapeHtml(item.kana||'') + '</div></div>' +
+          '<div class="card-actions"><button class="icon-btn ' + (faved?'faved':'') + '" onclick="toggleFav(\'' + item.id + '\',this)">' + (faved?'❤️':'🤍') + '</button>' +
+          '<button class="icon-btn" onclick="editItem(\'' + cat + '\',\'' + item.id + '\')">✏️</button></div></div>' +
+          '<div class="card-meaning">' + escapeHtml(item.meaning||'') + '</div>' +
+          '<div class="card-badges"><span class="chip level">' + escapeHtml(item.level||'') + '</span></div>' +
+          (isMeaningful(item.usage) ? '<div class="example-box"><div class="ex-label">用法</div>' + escapeHtml(item.usage) + '</div>' : '') +
+          (isMeaningful(item.confused) ? '<div class="confused-box"><div class="cf-label">易混淆</div>' + escapeHtml(item.confused) + '</div>' : '');
+      } else if (cat === 'exam') {
+        const points = Array.isArray(item.points) ? item.points : [];
+        body = '<div class="card-top"><div class="card-main"><div class="card-title">' + escapeHtml(item.level||'') + ' 考試重點</div></div>' +
+          '<div class="card-actions"><button class="icon-btn ' + (faved?'faved':'') + '" onclick="toggleFav(\'' + item.id + '\',this)">' + (faved?'❤️':'🤍') + '</button>' +
+          '<button class="icon-btn" onclick="editItem(\'' + cat + '\',\'' + item.id + '\')">✏️</button></div></div>' +
+          points.map(function(p){
+            return '<div class="exam-point"><span class="dot"></span><div>' + escapeHtml(p.text||'') + ' ' + (p.link ? '<span class="chip related" onclick="goToGrammar(\'' + p.link + '\')">→ 查看文法</span>' : '') + '</div></div>';
+          }).join('');
+      } else if (cat === 'idiom') {
+        body = '<div class="card-top"><div class="card-main"><div class="card-title">' + escapeHtml(item.phrase) + '</div><div class="card-kana">' + escapeHtml(item.kana||'') + '</div></div>' +
+          '<div class="card-actions"><button class="icon-btn ' + (faved?'faved':'') + '" onclick="toggleFav(\'' + item.id + '\',this)">' + (faved?'❤️':'🤍') + '</button>' +
+          '<button class="icon-btn" onclick="editItem(\'' + cat + '\',\'' + item.id + '\')">✏️</button></div></div>' +
+          '<div class="card-meaning">' + escapeHtml(item.meaning||'') + '</div>' +
+          '<div class="card-badges"><span class="chip level">' + escapeHtml(item.level||'') + '</span></div>';
+      } else if (cat === 'daily') {
+        body = '<div class="card-top"><div class="card-main"><div class="card-title">' + escapeHtml(item.phrase) + '</div><div class="card-kana">' + escapeHtml(item.kana||'') + '</div></div>' +
+          '<div class="card-actions"><button class="icon-btn ' + (faved?'faved':'') + '" onclick="toggleFav(\'' + item.id + '\',this)">' + (faved?'❤️':'🤍') + '</button>' +
+          '<button class="icon-btn" onclick="editItem(\'' + cat + '\',\'' + item.id + '\')">✏️</button></div></div>' +
+          '<div class="card-meaning">' + escapeHtml(item.meaning||'') + '</div>' +
+          '<div class="card-badges"><span class="chip level">' + escapeHtml(item.level||'') + '</span></div>' +
+          (isMeaningful(item.note) ? '<div class="mystic-note">' + escapeHtml(item.note) + '</div>' : '');
+      } else if (cat === 'collocation') {
+        let kanjiHtml = escapeHtml(item.kanji||'');
+        if (item.particles) {
+          item.particles.forEach(function(p){
+            if (p.p) kanjiHtml = kanjiHtml.replace(escapeHtml(p.t), '<span class="particle-hl">' + escapeHtml(p.t) + '</span>');
+          });
+        }
+        body = '<div class="card-top"><div class="card-main"><div class="card-title">' + kanjiHtml + '</div><div class="card-kana">' + escapeHtml(item.kana||'') + '</div></div>' +
+          '<div class="card-actions"><button class="icon-btn ' + (faved?'faved':'') + '" onclick="toggleFav(\'' + item.id + '\',this)">' + (faved?'❤️':'🤍') + '</button>' +
+          '<button class="icon-btn" onclick="editItem(\'' + cat + '\',\'' + item.id + '\')">✏️</button></div></div>' +
+          '<div class="card-meaning">' + escapeHtml(item.meaning||'') + '</div>';
+      } else if (cat === 'onomatopoeia') {
+        body = '<div class="card-top"><div class="card-main"><div class="card-title">' + escapeHtml(item.word) + '</div><div class="card-kana">' + escapeHtml(item.kana||'') + '</div></div>' +
+          '<div class="card-actions"><button class="icon-btn ' + (faved?'faved':'') + '" onclick="toggleFav(\'' + item.id + '\',this)">' + (faved?'❤️':'🤍') + '</button>' +
+          '<button class="icon-btn" onclick="editItem(\'' + cat + '\',\'' + item.id + '\')">✏️</button></div></div>' +
+          '<div class="card-meaning">' + escapeHtml(item.meaning||'') + '</div>';
+      } else if (cat === 'conjunction' || cat === 'particle') {
+        const title = cat === 'particle' ? '「' + (item.kanji||'') + '」' : (item.kanji||'');
+        body = '<div class="card-top"><div class="card-main"><div class="card-title">' + escapeHtml(title) + '</div><div class="card-kana">' + escapeHtml(item.kana||'') + '</div></div>' +
+          '<div class="card-actions"><button class="icon-btn ' + (faved?'faved':'') + '" onclick="toggleFav(\'' + item.id + '\',this)">' + (faved?'❤️':'🤍') + '</button>' +
+          '<button class="icon-btn" onclick="editItem(\'' + cat + '\',\'' + item.id + '\')">✏️</button></div></div>' +
+          '<div class="card-meaning">' + escapeHtml(item.meaning||'') + '</div>' +
+          (isMeaningful(item.related) ? '<div style="margin-top:10px;"><span class="chip related" onclick="goToGrammar(\'' + item.related + '\')">🔗 相關文法</span></div>' : '');
+      }
+
+      card.innerHTML = body;
+      container.appendChild(card);
+    });
+  } catch(err) {
+    console.error('renderCategory error:', err);
+    const c = document.getElementById('list-' + cat);
+    if (c) c.innerHTML = '<div class="empty"><div class="empty-icon">⚠️</div><div class="empty-text">渲染時發生錯誤</div><div class="empty-hint">' + escapeHtml(err.message) + '</div></div>';
+  }
+}
+
+function goToGrammar(id) {
+  goToPage('grammar');
+  setTimeout(function(){
+    const el = document.querySelector('#list-grammar .card[data-id="' + id + '"]');
+    if (el) {
+      el.scrollIntoView({behavior:'smooth', block:'center'});
+      el.style.transition = 'box-shadow 0.3s';
+      el.style.boxShadow = '0 0 0 2px var(--primary), 0 6px 22px rgba(179,74,74,0.15)';
+      setTimeout(function(){ el.style.boxShadow = ''; }, 2200);
+    }
+  }, 120);
+}
+
+function toggleFav(id, btn) {
+  const idx = state.favorites.indexOf(id);
+  if (idx === -1) {
+    state.favorites.push(id);
+    if (btn) { btn.textContent = '❤️'; btn.classList.add('faved'); }
+  } else {
+    state.favorites.splice(idx, 1);
+    if (btn) { btn.textContent = '🤍'; btn.classList.remove('faved'); }
+  }
+  saveState();
+  if (currentPage === 'favorites') renderFavorites();
+}
+
+function renderFavorites() {
+  const container = document.getElementById('list-favorites');
+  if (!container) return;
+  const q = ((document.getElementById('search-favorites') || {}).value || '').toLowerCase().trim();
+  let all = [];
+  Object.keys(state.data).forEach(function(cat){
+    (state.data[cat] || []).forEach(function(item){
+      if (state.favorites.indexOf(item.id) !== -1) all.push(Object.assign({}, item, { _cat: cat }));
+    });
+  });
+  if (q) all = all.filter(function(i){ return JSON.stringify(i).toLowerCase().indexOf(q) !== -1; });
+
+  const countEl = document.getElementById('count-favorites');
+  if (countEl) countEl.textContent = all.length;
+
+  if (!all.length) {
+    container.innerHTML = '<div class="empty"><div class="empty-icon">⭐</div><div class="empty-text">還沒有收藏任何內容</div><div class="empty-hint">點擊卡片上的 🤍 即可收藏</div></div>';
+    return;
+  }
+  container.innerHTML = '';
+  all.forEach(function(item){
+    const cat = item._cat;
+    const card = document.createElement('div');
+    card.className = 'card';
+    let title = item.kanji || item.grammar || item.phrase || item.word || item.title || '';
+    if (cat === 'particle') title = '「' + title + '」';
+    card.innerHTML = '<div class="card-top"><div class="card-main"><div class="card-title">' + escapeHtml(title) + '</div><div class="card-kana">' + escapeHtml(item.kana || '') + '</div></div>' +
+      '<div class="card-actions"><button class="icon-btn faved" onclick="toggleFav(\'' + item.id + '\',this)">❤️</button></div></div>' +
+      '<div class="card-meaning">' + escapeHtml(item.meaning || (item.points && item.points[0] && item.points[0].text) || '') + '</div>' +
+      '<div class="card-badges">' + (item.level ? '<span class="chip level">' + item.level + '</span>' : '') + '<span class="chip cat">' + (CAT_ICONS[cat]||'') + ' ' + (CAT_LABELS[cat]||cat) + '</span></div>';
+    container.appendChild(card);
+  });
+}
+
+const overlay = document.getElementById('modalOverlay');
+const modalContent = document.getElementById('modalContent');
+function closeModal() { overlay.classList.remove('show'); }
+overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
+
+function openDB(cat, mode) {
+  if (mode === 'import') {
+    const desc = '貼上 JSON 陣列或 CSV。同名內容會自動以「同名取代」方式處理。<br>🧠 <b>智慧提示</b>：空白、佔位符（如「無」「なし」）或無意義的欄位會自動省略，不會顯示於卡片。';
+    const placeholder = '[{"kanji":"例","kana":"れい","level":"N5","meaning":"例子"}]';
+    modalContent.innerHTML = '<h3>📥 匯入資料</h3><div class="modal-desc">' + desc + '</div>' +
+      '<label>資料內容（' + (CAT_LABELS[cat] || cat) + '）</label>' +
+      '<textarea id="importText" rows="8" placeholder=\'' + placeholder + '\'></textarea>' +
+      '<div class="modal-actions"><button class="btn btn-outline" onclick="closeModal()">取消</button><button class="btn btn-primary" onclick="doImport(\'' + cat + '\')">匯入</button></div>';
+    overlay.classList.add('show');
+  } else if (mode === 'add') {
+    openEditModal(cat, null);
+  }
+}
+
+function doImport(cat) {
+  const textEl = document.getElementById('importText');
+  if (!textEl) return;
+  const text = textEl.value.trim();
+  if (!text) return alert('請貼上資料');
+  let arr;
+  try {
+    if (text.charAt(0) === '[') arr = JSON.parse(text);
+    else {
+      const lines = text.split('\n').filter(function(l){ return l.trim(); });
+      if (lines.length < 2) return alert('CSV 至少需要標題行和一行資料');
+      const headers = lines[0].split(',').map(function(h){ return h.trim(); });
+      arr = lines.slice(1).map(function(line){
+        const vals = line.split(',').map(function(v){ return v.trim(); });
+        const obj = {};
+        headers.forEach(function(h, i){ obj[h] = vals[i] || ''; });
+        return obj;
+      });
+    }
+    if (!Array.isArray(arr)) throw new Error('格式錯誤');
+
+    const existing = state.data[cat] || [];
+    const merged = existing.slice();
+    const getKey = function(item) {
+      return item.id || ((item.kanji || item.grammar || item.phrase || item.word || item.title || '') + '_' + (item.kana || ''));
+    };
+
+    const extraFields = ['homophoneKanji','homophoneMeaning','errorProne','confused','example','usage','related','mazii','note'];
+    let addedCount = 0, replacedCount = 0, ignoredCount = 0;
+
+    arr.forEach(function(rawItem){
+      const item = Object.assign({}, rawItem);
+      extraFields.forEach(function(k){
+        if (k in item && !isMeaningful(item[k])) { ignoredCount++; delete item[k]; }
+      });
+      const key = getKey(item);
+      let found = -1;
+      for (let i = 0; i < merged.length; i++) {
+        if (getKey(merged[i]) === key) { found = i; break; }
+      }
+      if (found >= 0) {
+        merged[found] = Object.assign({}, merged[found], item, { id: merged[found].id || cat + '_' + Date.now() + '_' + Math.random().toString(36).slice(2,6) });
+        replacedCount++;
+      } else {
+        merged.push(Object.assign({}, item, { id: item.id || cat + '_' + Date.now() + '_' + Math.random().toString(36).slice(2,6) }));
+        addedCount++;
+      }
+    });
+
+    state.data[cat] = merged;
+    saveState();
+    closeModal();
+    renderCategory(cat);
+
+    let msg = '✓ 匯入完成\n新增 ' + addedCount + ' 筆・取代 ' + replacedCount + ' 筆・總計 ' + merged.length + ' 筆';
+    if (ignoredCount > 0) msg += '\n🧠 智慧提示：' + ignoredCount + ' 個空白或無意義欄位已自動省略';
+    showToast(msg, 4000);
+  } catch(e) {
+    alert('匯入失敗：' + e.message);
+  }
+}
+
+function openEditModal(cat, id) {
+  const existing = id ? (state.data[cat] || []).filter(function(x){ return x.id === id; })[0] : null;
+  const item = existing ? JSON.parse(JSON.stringify(existing)) : { level:'N3' };
+  const fields = getFields(cat);
+
+  modalContent.innerHTML = '<h3>' + (id ? '✏️ 編輯' : '➕ 新增') + ' ' + CAT_LABELS[cat] + '</h3>' +
+    '<div class="modal-desc">' + (id ? '修改後將取代原有內容。留空的欄位不會顯示於卡片。' : '建立新的學習項目。留空的欄位不會顯示於卡片。') + '</div>' +
+    '<div id="editFields"></div>' +
+    '<div class="modal-actions"><button class="btn btn-outline" onclick="closeModal()">取消</button><button class="btn btn-primary" onclick="saveItem(\'' + cat + '\',\'' + (id || '') + '\')">儲存</button></div>';
+
+  const wrap = modalContent.querySelector('#editFields');
+  fields.forEach(function(f){
+    let val = item[f.key];
+    if (val == null) val = '';
+    if (Array.isArray(val)) val = JSON.stringify(val, null, 2);
+    const label = document.createElement('label');
+    label.textContent = f.label;
+    wrap.appendChild(label);
+    let el;
+    if (f.type === 'textarea') { el = document.createElement('textarea'); el.rows = 4; }
+    else { el = document.createElement('input'); el.type = 'text'; }
+    el.id = 'f-' + f.key;
+    el.value = val;
+    wrap.appendChild(el);
+  });
+
+  overlay.classList.add('show');
+}
+
+function getFields(cat) {
+  switch(cat) {
+    case 'vocab': return [
+      {key:'kanji',label:'漢字'},{key:'kana',label:'平假名 / 片假名'},{key:'level',label:'級別 (N5–N1)'},
+      {key:'meaning',label:'意思'},{key:'category',label:'類別'},
+      {key:'example',label:'例句',type:'textarea'},
+      {key:'homophoneKanji',label:'同音漢字（留空＝自動隱藏）'},
+      {key:'homophoneMeaning',label:'同音異義詞（留空＝自動隱藏）',type:'textarea'},
+      {key:'errorProne',label:'易錯音識別（留空＝自動隱藏）',type:'textarea'},
+      {key:'confused',label:'容易混淆的單詞（留空＝自動隱藏）',type:'textarea'},
+      {key:'mazii',label:'Mazii 連結'}
+    ];
+    case 'grammar': return [
+      {key:'grammar',label:'文法'},{key:'kana',label:'平假名'},{key:'level',label:'級別'},
+      {key:'meaning',label:'意思'},{key:'usage',label:'用法',type:'textarea'},
+      {key:'confused',label:'容易混淆/搞錯的文法提醒',type:'textarea'}
+    ];
+    case 'exam': return [{key:'level',label:'級別'},{key:'points',label:'重點（JSON 陣列）',type:'textarea'}];
+    case 'idiom': return [{key:'phrase',label:'短句'},{key:'kana',label:'平假名'},{key:'level',label:'級別'},{key:'meaning',label:'意思'}];
+    case 'daily': return [{key:'phrase',label:'短句'},{key:'kana',label:'平假名'},{key:'level',label:'級別'},{key:'meaning',label:'意思'},{key:'note',label:'注意事項',type:'textarea'}];
+    case 'collocation': return [{key:'kanji',label:'漢字（含助詞）'},{key:'kana',label:'平假名'},{key:'meaning',label:'意思'}];
+    case 'onomatopoeia': return [{key:'word',label:'漢字 / 詞'},{key:'kana',label:'平假名'},{key:'meaning',label:'意思'}];
+    case 'conjunction': return [{key:'kanji',label:'漢字'},{key:'kana',label:'平假名'},{key:'meaning',label:'意思'},{key:'related',label:'相關文法 ID（選填）'}];
+    case 'particle': return [{key:'kanji',label:'助詞'},{key:'kana',label:'平假名'},{key:'meaning',label:'意思'},{key:'related',label:'相關文法 ID（選填）'}];
+    default: return [];
+  }
+}
+
+function editItem(cat, id) { openEditModal(cat, id); }
+
+function saveItem(cat, id) {
+  const fields = getFields(cat);
+  const obj = {};
+  fields.forEach(function(f){
+    const el = document.getElementById('f-' + f.key);
+    let val = el ? el.value : '';
+    if (f.key === 'points') {
+      try { val = JSON.parse(val); } catch(e) { val = []; }
+    }
+    obj[f.key] = val;
+  });
+  obj.id = id || cat + '_' + Date.now() + '_' + Math.random().toString(36).slice(2,6);
+  const list = state.data[cat] || [];
+  const idx = list.findIndex(function(x){ return x.id === obj.id; });
+  if (idx >= 0) list[idx] = Object.assign({}, list[idx], obj);
+  else list.push(obj);
+  state.data[cat] = list;
+  saveState();
+  closeModal();
+  renderCategory(cat);
+  showToast(id ? '✓ 已更新' : '✓ 已新增', 1800);
+}
+
+function exportData(cat) {
+  const data = cat ? state.data[cat] : state.data;
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'jp_' + (cat || 'all') + '_' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function resetData(cat) {
+  if (!confirm('確定還原「' + CAT_LABELS[cat] + '」為預設資料嗎？\n目前內容將被覆蓋。')) return;
+  state.data[cat] = JSON.parse(JSON.stringify(DEFAULT_DATA[cat] || []));
+  saveState();
+  renderCategory(cat);
+  showToast('✓ 已還原「' + CAT_LABELS[cat] + '」', 1800);
+}
+
+window.addEventListener('scroll', function(){
+  const btn = document.getElementById('backTop');
+  if (btn) btn.classList.toggle('show', window.scrollY > 400);
+}, { passive: true });
+
+function init() {
+  try {
+    const savedTheme = localStorage.getItem(THEME_KEY);
+    if (savedTheme === 'dark' || savedTheme === 'light') applyTheme(savedTheme);
+    else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) applyTheme('dark');
+  } catch(e) {}
+
+  document.querySelectorAll('.tab-img').forEach(function(img){
+    if (!img.getAttribute('src')) img.style.display = 'none';
+  });
+
+  loadState();
+  renderQGrid();
+  renderQuiz();
+  updateTimerDisplay();
+  updateStatsDisplay();
+  startTimer();
+
+  ['vocab','grammar','particle','collocation','conjunction','onomatopoeia','idiom','daily','exam'].forEach(function(cat){
+    try { renderCategory(cat); } catch(e) { console.warn('pre-render fail:', cat, e); }
+  });
+}
+init();
+</script>
+</body>
+</html>
