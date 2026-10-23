@@ -325,12 +325,12 @@ main { max-width: 960px; margin: 0 auto; padding: 16px 16px 100px; position: rel
 
 <div class="top-sticky">
   <header class="banner">
-    <img class="banner-img" src="QmFubmVyLmpwZWc=" alt="日式櫻花風景" loading="eager" referrerpolicy="no-referrer">
+    <img class="banner-img" src="Banner.jpeg" alt="日式櫻花風景" loading="eager" referrerpolicy="no-referrer">
     <div class="banner-overlay"></div>
     <div class="banner-inner">
       <div class="brand">
         <div class="brand-avatar">
-          <img class="brand-avatar-img" src="YmxhY2tzdGFyLnBuZw==" alt="品牌圖示" loading="eager" referrerpolicy="no-referrer">
+          <img class="brand-avatar-img" src="blackstar.png"品牌圖示" loading="eager" referrerpolicy="no-referrer">
         </div>
         <div class="brand-text">
           <div class="brand-title">日語溫習</div>
@@ -744,7 +744,7 @@ function loadState() {
   } catch(e) { console.warn('loadState error', e); }
 }
 function saveState() {
-  try { localStorage.setItem(, JSON.stringify(state)); }
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); }
   catch(e) { showToast('⚠️ 儲存空間已滿，請清理部分內容。', 4000); }
 }
 
